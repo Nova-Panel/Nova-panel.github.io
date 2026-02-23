@@ -920,14 +920,14 @@
             opacity: 1
         }
 
-        /* 返回顶部图标样式 */
-        .social-link[title="返回顶部"]:hover {
+        /* بازگشت به بالا图标样式 */
+        .social-link[title="بازگشت به بالا"]:hover {
             color: #10b981;
             border-color: rgba(16, 185, 129, 0.4);
             box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25), 0 4px 12px rgba(5, 150, 105, 0.15)
         }
 
-        .social-link[title="返回顶部"]:hover::before {
+        .social-link[title="بازگشت به بالا"]:hover::before {
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(5, 150, 105, 0.04) 100%);
             opacity: 1
         }
@@ -1400,7 +1400,7 @@
             box-shadow: 0 8px 24px rgba(42, 171, 238, 0.3), 0 4px 12px rgba(34, 158, 217, 0.2)
         }
 
-        html.dark-mode .social-link[title="返回顶部"]:hover {
+        html.dark-mode .social-link[title="بازگشت به بالا"]:hover {
             color: #34d399;
             border-color: rgba(52, 211, 153, 0.5);
             box-shadow: 0 8px 24px rgba(52, 211, 153, 0.3), 0 4px 12px rgba(16, 185, 129, 0.2)
@@ -5249,13 +5249,13 @@
 </head>
 
 <body>
-    <!-- 背景内容 -->
-    <iframe id="background-iframe" src="/" title="背景内容"></iframe>
+    <!-- محتوای پس‌زمینه -->
+    <iframe id="background-iframe" src="/" title="محتوای پس‌زمینه"></iframe>
 
-    <!-- 毛玻璃效果遮盖层 -->
+    <!-- لایه افکت بلور -->
     <div id="blur-overlay"></div>
 
-    <!-- 管理后台容器 -->
+    <!-- کانتینر پنل مدیریت -->
     <div class="page-wrapper">
         <div class="card-container">
             <div class="success-message" id="successMsg"></div>
@@ -5263,63 +5263,62 @@
 
             <div class="header">
                 <div class="header-title">
-                    <h1 id="pageTitle">加载中...</h1>
+                    <h1 id="pageTitle">در حال بارگذاری...</h1>
                 </div>
                 <div class="header-buttons">
                     <button type="button" class="btn btn-mode-toggle" id="modeToggleBtn" onclick="toggleUserMode()">🐣
-                        我是小白！我想简单点！</button>
+                        تازه‌کار هستم! می‌خواهم ساده باشد!</button>
                     <button type="button" class="btn btn-danger btn-reset"
-                        onclick="resetConfigWithConfirm()">⚠️重置配置</button>
-                    <button type="button" class="btn btn-primary" onclick="logout()">👋退出登录</button>
+                        onclick="resetConfigWithConfirm()">⚠️تنظیمات را بازنشانی کن</button>
+                    <button type="button" class="btn btn-primary" onclick="logout()">👋خروج از سیستم</button>
                 </div>
             </div>
 
-            <!-- Cloudflare Workers/Pages 使用统计模块 -->
+            <!-- ماژول آمار استفاده Workers/Pages -->
             <div class="module cf-usage-module collapsed" id="cfUsageModule">
                 <div class="module-title" onclick="toggleModule(this)">
-                    Workers/Pages 请求使用情况
+                    میزان استفاده Workers/Pages
                     <svg class="collapse-icon" viewBox="0 0 24 24">
                         <path d="M7 10l5 5 5-5z" />
                     </svg>
                 </div>
-                <!-- 进度条 -->
+                <!-- نوار پیشرفت -->
                 <div>
                     <div class="cf-progress-bar">
-                        <!-- Workers 进度条 (绿色) -->
-                        <div class="cf-bar-segment cf-bar-green" id="cfWorkerBar" title="Workers 请求"></div>
-                        <!-- Pages 进度条 (蓝色) -->
-                        <div class="cf-bar-segment cf-bar-blue" id="cfPagesBar" title="Pages 请求"></div>
-                        <!-- 总体百分比文字 (中央) -->
+                        <!-- نوار پیشرفت Workers (سبز) -->
+                        <div class="cf-bar-segment cf-bar-green" id="cfWorkerBar" title="درخواست‌های Workers"></div>
+                        <!-- نوار پیشرفت Pages (آبی) -->
+                        <div class="cf-bar-segment cf-bar-blue" id="cfPagesBar" title="درخواست‌های Pages"></div>
+                        <!-- متن درصد کل (وسط) -->
                         <div class="cf-percentage-center" id="cfPercentageCenter">0%</div>
                     </div>
                 </div>
                 <div class="module-content">
                     <div class="cf-usage-wrapper">
-                        <!-- 使用统计卡片 -->
+                        <!-- کارت‌های آمار -->
                         <div class="cf-stats-card">
                             <div class="cf-stats-grid">
                                 <div class="cf-stat-item">
-                                    <div class="cf-stat-label">Workers 请求</div>
+                                    <div class="cf-stat-label">درخواست‌های Workers</div>
                                     <div class="cf-stat-value cf-value-green" id="cfWorkerCount">-</div>
                                 </div>
                                 <div class="cf-stat-item">
-                                    <div class="cf-stat-label">Pages 请求</div>
+                                    <div class="cf-stat-label">درخواست‌های Pages</div>
                                     <div class="cf-stat-value cf-value-blue" id="cfPagesCount">-</div>
                                 </div>
                                 <div class="cf-stat-item">
-                                    <div class="cf-stat-label">日配额</div>
+                                    <div class="cf-stat-label">سهمیه روزانه</div>
                                     <div class="cf-stat-value cf-value-orange" id="cfDailyQuota">100,000</div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- 信息提示 -->
+                        <!-- اطلاعات -->
                         <div class="cf-info-box">
                             <div class="cf-info-icon">ℹ️</div>
                             <div class="cf-info-text">
-                                <strong>每日请求数重置清零：</strong><br><span id="countdown" class="cf-highlight">距离重置还有 15小时24分
-                                    34秒</span>，<br>北京时间 (UTC+8) <strong
-                                    class="cf-highlight">8:00</strong>重置，<br>今日使用情况总计：<strong class="cf-highlight"
+                                <strong>شمارش مجدد درخواست‌های روزانه:</strong><br><span id="countdown" class="cf-highlight">15 ساعت 24 دقیقه 34 ثانیه تا بازنشانی</span>،<br>به وقت ایران (UTC+3:30) <strong
+                                    class="cf-highlight">00:30</strong>بازنشانی می‌شود،<br>استفاده امروز: <strong class="cf-highlight"
                                     id="cfTotalDisplay">-</strong>。
                             </div>
                         </div>
@@ -5327,10 +5326,10 @@
                 </div>
             </div>
 
-            <!-- 网络信息模块 -->
+            <!-- ماژول اطلاعات شبکه -->
             <div class="module advanced-module">
                 <div class="module-title" onclick="toggleNetworkModule(this)">
-                    🌍 当前网络信息
+                    🌍 اطلاعات شبکه فعلی
                     <svg class="collapse-icon" viewBox="0 0 24 24" style="transform: rotate(90deg);">
                         <path d="M7 10l5 5 5-5z" />
                     </svg>
@@ -5341,7 +5340,7 @@
                             <div class="network-card-title">
                                 <span class="status-indicator" id="status-ipip"></span>
                                 <div class="title-text">
-                                    <div class="title-main">国内测试</div>
+                                    <div class="title-main">تست داخلی</div>
                                     <div class="title-subtitle">speedtest.cn</div>
                                 </div>
                             </div>
@@ -5350,7 +5349,7 @@
                                 <div class="location-text">
                                     <span id="ipip-country" class="country-text">-</span>
                                 </div>
-                                <div class="network-tip">· 您访问国内站点所使用的IP</div>
+                                <div class="network-tip">· IP استفاده شده برای دسترسی به سایت‌های داخلی</div>
                             </div>
                         </div>
 
@@ -5358,8 +5357,8 @@
                             <div class="network-card-title">
                                 <span class="status-indicator" id="status-overseas"></span>
                                 <div class="title-text">
-                                    <div class="title-main">国外测试</div>
-                                    <div class="title-subtitle">漏网之鱼</div>
+                                    <div class="title-main">تست خارجی</div>
+                                    <div class="title-subtitle">google.com</div>
                                 </div>
                             </div>
                             <div class="network-info-content">
@@ -5367,7 +5366,7 @@
                                 <div class="location-text">
                                     <span id="overseas-country" class="country-text">-</span>
                                 </div>
-                                <div class="network-tip">· 您访问没有被封的国外站点所使用的IP</div>
+                                <div class="network-tip">· IP استفاده شده برای دسترسی به سایت‌های خارجی باز</div>
                             </div>
                         </div>
 
@@ -5384,7 +5383,7 @@
                                 <div class="location-text">
                                     <span id="cf-country" class="country-text">-</span>
                                 </div>
-                                <div class="network-tip">· 您访问CFCDN站点所使用的落地IP</div>
+                                <div class="network-tip">· IP خروجی برای دسترسی به سایت‌های CFCDN</div>
                             </div>
                         </div>
 
@@ -5392,7 +5391,7 @@
                             <div class="network-card-title">
                                 <span class="status-indicator" id="status-twitter"></span>
                                 <div class="title-text">
-                                    <div class="title-main">翻墙测试</div>
+                                    <div class="title-main">تست فیلترشکن</div>
                                     <div class="title-subtitle">X.com</div>
                                 </div>
                             </div>
@@ -5401,102 +5400,102 @@
                                 <div class="location-text">
                                     <span id="twitter-country" class="country-text">-</span>
                                 </div>
-                                <div class="network-tip">· 您访问推特(x.com)所使用的IP</div>
+                                <div class="network-tip">· IP استفاده شده برای دسترسی به توییتر(x.com)</div>
                             </div>
                         </div>
                     </div>
-                    <small style="font-size: 12px; color: #9ca3af; margin-top: 6px; display: block;">💡 <b>国内测试</b>
-                        是由您梯子的 <b>分流规则</b> 决定的，<b>国外测试</b> 是由您的 <b>优选IP</b> 决定的，而 <b>CF、Twitter、ChatGPT</b> 是由您的
-                        <b>PROXYIP</b> 决定的。</small>
+                    <small style="font-size: 12px; color: #9ca3af; margin-top: 6px; display: block;">💡 <b>تست داخلی</b>
+                        توسط <b>قوانین مسیریابی</b> شما تعیین می‌شود، <b>تست خارجی</b> توسط <b>IP بهینه</b> شما تعیین می‌شود، و <b>CF، Twitter، ChatGPT</b> توسط
+                        <b>PROXYIP</b> شما تعیین می‌شود。</small>
                     <div class="module-content" style="display: none;" id="network-module-content">
-                        <!-- 延迟测试卡片 -->
+                        <!-- کارت تست تأخیر -->
                         <div class="latency-cards" id="latency-cards">
-                            <!-- 卡片将通过JavaScript动态生成 -->
+                            <!-- کارت‌ها به صورت پویا توسط جاوااسکریپت تولید می‌شوند -->
                         </div>
                         <small
-                            style="font-size: 12px; color: #9ca3af; margin-top: 6px; display: block;">💡<b>更多测试项目</b>，可前往
+                            style="font-size: 12px; color: #9ca3af; margin-top: 6px; display: block;">💡<b>تست‌های بیشتر</b>، می‌توانید به
                             <a href="https://ip.skk.moe/" target="_blank" rel="noopener"
-                                style="font-weight: bold; color: #6b7280;">ip.skk.moe</a> 自行测试。
+                                style="font-weight: bold; color: #6b7280;">ip.skk.moe</a> مراجعه کنید.
                         </small>
                     </div>
 
                 </div>
             </div>
 
-            <!-- 模块1: 订阅链接 -->
+            <!-- ماژول1: دریافت لینک‌های نود -->
             <div class="module">
                 <div class="module-title" onclick="toggleModule(this)">
-                    📋 获取节点链接
+                    📋 دریافت لینک نود
                     <svg class="collapse-icon" viewBox="0 0 24 24">
                         <path d="M7 10l5 5 5-5z" />
                     </svg>
                 </div>
                 <div class="form-group">
-                    <label for="LinkURL">节点链接格式</label>
+                    <label for="LinkURL">فرمت لینک نود</label>
                     <div class="input-wrapper subscription-link-wrapper">
-                        <input type="text" id="LinkURL" title="节点链接格式" readonly>
+                        <input type="text" id="LinkURL" title="فرمت لینک نود" readonly>
                         <div class="btn-container">
-                            <button type="button" class="btn btn-qrcode" onclick="showQRCode('LinkURL')">📱二维码</button>
+                            <button type="button" class="btn btn-qrcode" onclick="showQRCode('LinkURL')">📱QR کد</button>
                             <button type="button" class="btn btn-primary"
-                                onclick="copySubscription('LinkURL')">复制节点</button>
+                                onclick="copySubscription('LinkURL')">کپی نود</button>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="subLink">自适应订阅</label>
+                    <label for="subLink">اشتراک تطبیقی</label>
                     <div class="input-wrapper subscription-link-wrapper">
-                        <input type="text" id="subLink" title="自适应订阅" readonly>
+                        <input type="text" id="subLink" title="اشتراک تطبیقی" readonly>
                         <div class="btn-container">
-                            <button type="button" class="btn btn-qrcode" onclick="showQRCode('subLink')">📱二维码</button>
+                            <button type="button" class="btn btn-qrcode" onclick="showQRCode('subLink')">📱QR کد</button>
                             <button type="button" class="btn btn-primary"
-                                onclick="copySubscription('subLink')">复制订阅</button>
+                                onclick="copySubscription('subLink')">کپی اشتراک</button>
                         </div>
                     </div>
                 </div>
                 <div class="module-content">
                     <div class="form-group">
-                        <label for="base64Link">Base64订阅</label>
+                        <label for="base64Link">اشتراک Base64</label>
                         <div class="input-wrapper subscription-link-wrapper">
-                            <input type="text" id="base64Link" title="Base64订阅" readonly>
+                            <input type="text" id="base64Link" title="اشتراک Base64" readonly>
                             <div class="btn-container">
                                 <button type="button" class="btn btn-qrcode"
-                                    onclick="showQRCode('base64Link')">📱二维码</button>
+                                    onclick="showQRCode('base64Link')">📱QR کد</button>
                                 <button type="button" class="btn btn-primary"
-                                    onclick="copySubscription('base64Link')">复制订阅</button>
+                                    onclick="copySubscription('base64Link')">کپی اشتراک</button>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="clashLink">Clash订阅</label>
+                        <label for="clashLink">اشتراک Clash</label>
                         <div class="input-wrapper subscription-link-wrapper">
-                            <input type="text" id="clashLink" title="Clash订阅" readonly>
+                            <input type="text" id="clashLink" title="اشتراک Clash" readonly>
                             <div class="btn-container">
                                 <button type="button" class="btn btn-qrcode"
-                                    onclick="showQRCode('clashLink')">📱二维码</button>
+                                    onclick="showQRCode('clashLink')">📱QR کد</button>
                                 <button type="button" class="btn btn-primary"
-                                    onclick="copySubscription('clashLink')">复制订阅</button>
+                                    onclick="copySubscription('clashLink')">کپی اشتراک</button>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="singboxLink">SingBox订阅</label>
+                        <label for="singboxLink">اشتراک SingBox</label>
                         <div class="input-wrapper subscription-link-wrapper">
-                            <input type="text" id="singboxLink" title="SingBox订阅" readonly>
+                            <input type="text" id="singboxLink" title="اشتراک SingBox" readonly>
                             <div class="btn-container">
                                 <button type="button" class="btn btn-qrcode"
-                                    onclick="showQRCode('singboxLink')">📱二维码</button>
+                                    onclick="showQRCode('singboxLink')">📱QR کد</button>
                                 <button type="button" class="btn btn-primary"
-                                    onclick="copySubscription('singboxLink')">复制订阅</button>
+                                    onclick="copySubscription('singboxLink')">کپی اشتراک</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 模块2: 编辑订阅生成 -->
+            <!-- ماژول2: ویرایش تولید اشتراک -->
             <div class="module collapsed">
                 <div class="module-title" onclick="toggleModule(this)">
-                    ⚡️ 优选订阅生成
+                    ⚡️ تولید اشتراک بهینه
                     <svg class="collapse-icon" viewBox="0 0 24 24">
                         <path d="M7 10l5 5 5-5z" />
                     </svg>
@@ -5504,24 +5503,24 @@
                 <div class="module-content">
 
                     <div class="form-group">
-                        <label for="ipMode">优选订阅模式</label>
-                        <select id="ipMode" title="优选订阅模式" onchange="updateIPMode()">
-                            <option value="generator">优选订阅生成器</option>
-                            <option value="random">随机优选</option>
-                            <option value="custom">自定义订阅（支持汇聚订阅）</option>
+                        <label for="ipMode">حالت اشتراک بهینه</label>
+                        <select id="ipMode" title="حالت اشتراک بهینه" onchange="updateIPMode()">
+                            <option value="generator">تولیدکننده اشتراک بهینه</option>
+                            <option value="random">بهینه‌سازی تصادفی</option>
+                            <option value="custom">اشتراک سفارشی (پشتیبانی از تجمیع)</option>
                         </select>
                     </div>
 
                     <div id="randomIPSection" class="form-group">
-                        <label for="randomCount">随机优选数量</label>
-                        <input type="number" id="randomCount" title="随机优选数量 1~99" min="1" max="99" value="16"
+                        <label for="randomCount">تعداد بهینه‌سازی تصادفی</label>
+                        <input type="number" id="randomCount" title="تعداد بهینه‌سازی تصادفی 1~99" min="1" max="99" value="16"
                             onchange="markModified('sub')" oninput="if(this.value>99){this.value=99;}">
                     </div>
 
                     <div id="portSection" class="form-group hidden-section">
-                        <label for="specifiedPort">指定优选端口</label>
+                        <label for="specifiedPort">پورت مشخص شده</label>
                         <select id="specifiedPort" onchange="markModified('sub')">
-                            <option value="-1">随机端口</option>
+                            <option value="-1">پورت تصادفی</option>
                             <option value="443">443</option>
                             <option value="2053">2053</option>
                             <option value="2083">2083</option>
@@ -5532,26 +5531,25 @@
                     </div>
 
                     <div id="customIPSection" class="form-group hidden-section">
-                        <label for="customIPs">自定义优选地址</label>
+                        <label for="customIPs">آدرس‌های بهینه سفارشی</label>
                         <div class="line-editor" id="subCustomEditor">
                             <div class="gutter" aria-hidden="true"></div>
                             <div class="editor-area">
                                 <pre class="mirror" aria-hidden="true"></pre>
-                                <textarea id="customIPs" title="自定义优选地址"
-                                    placeholder="注意：
-每行一个地址，如：地址:端口#备注
-IPv6地址需要用中括号括起来，如：[2606:4700::]:2053
-端口不写，默认为 443 端口，如：www.visa.cn#优选域名
+                                <textarea id="customIPs" title="آدرس‌های بهینه سفارشی"
+                                    placeholder="توجه:
+هر آدرس در یک خط، مانند: آدرس:پورت#یادداشت
+آدرس‌های IPv6 باید در کروشه باشند، مانند: [2606:4700::]:2053
+اگر پورت نوشته نشود، پیش‌فرض 443 است، مانند: www.visa.cn#دامنه بهینه
 
-示例：
-www.visa.cn#优选域名
+مثال:
+www.visa.cn#دامنه بهینه
 127.0.0.1:1234#CFnat
 [2606:4700::]:2053#IPv6
-
-API示例：
+مثال API:
 https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesapi.txt
 
-其他节点示例：
+سایر نمونه نودها:
 vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tls&type=ws&host=edt-pages.github.io&path=%2F#Nova Tunnel"
                                     onchange="markModified('sub')"></textarea>
                             </div>
@@ -5559,30 +5557,30 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                     </div>
 
                     <div id="generatorSection" class="form-group hidden-section">
-                        <label for="generatorURL">优选订阅生成器</label>
-                        <input type="text" id="generatorURL" title="优选订阅生成器" placeholder="sub.cmliussss.net"
+                        <label for="generatorURL">تولیدکننده اشتراک بهینه</label>
+                        <input type="text" id="generatorURL" title="تولیدکننده اشتراک بهینه" placeholder="sub.cmliussss.net"
                             onchange="processGeneratorURL()" oninput="processGeneratorURL()">
                     </div>
 
                     <div class="module-footer">
                         <button type="button" class="btn btn-online-optimize hidden-section" id="onlineOptimizeBtn"
-                            onclick="openOnlineOptimizeModal()">在线优选</button>
+                            onclick="openOnlineOptimizeModal()">بهینه‌سازی آنلاین</button>
                         <button type="button" class="btn btn-api-optimize hidden-section" id="apiOptimizeBtn"
-                            onclick="openAPIOptimizeModal()">订阅接口</button>
+                            onclick="openAPIOptimizeModal()">رابط اشتراک</button>
                         <div class="btn-group">
                             <button type="button" class="btn btn-secondary" onclick="cancelEdit('sub')" disabled
-                                id="cancelSubBtn">取消</button>
+                                id="cancelSubBtn">لغو</button>
                             <button type="button" class="btn btn-primary" onclick="saveSub()" disabled
-                                id="saveSubBtn">保存</button>
+                                id="saveSubBtn">ذخیره</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 模块3: 详细配置信息 -->
+            <!-- ماژول3: اطلاعات پیکربندی -->
             <div class="module collapsed advanced-module">
                 <div class="module-title" onclick="toggleModule(this)">
-                    ⚙️ 详细配置信息
+                    ⚙️ اطلاعات پیکربندی
                     <svg class="collapse-icon" viewBox="0 0 24 24">
                         <path d="M7 10l5 5 5-5z" />
                     </svg>
@@ -5590,39 +5588,39 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 <div class="module-content">
 
                     <div class="form-group">
-                        <label for="subName">订阅名称</label>
-                        <input type="text" id="subName" title="订阅名称" onchange="markModified('config')">
+                        <label for="subName">نام اشتراک</label>
+                        <input type="text" id="subName" title="نام اشتراک" onchange="markModified('config')">
                     </div>
 
                     <div class="form-group">
                         <label for="nodeHost">HOST</label>
-                        <input type="text" id="nodeHost" title="节点域名" readonly>
+                        <input type="text" id="nodeHost" title="دامنه نود" readonly>
                     </div>
 
                     <div class="form-group">
                         <label for="nodeUUID">UUID</label>
-                        <input type="text" id="nodeUUID" title="用于节点验证的UUID 仅可通过 'UUID'环境变量 进行修改" readonly>
+                        <input type="text" id="nodeUUID" title="UUID برای اعتبارسنجی نود فقط از طریق متغیر محیطی 'UUID' قابل تغییر است" readonly>
                     </div>
 
                     <div class="form-group">
                         <label for="nodePATH">PATH</label>
-                        <input type="text" id="nodePATH" title="节点的伪装路径 仅可通过 'PATH'环境变量 进行修改">
+                        <input type="text" id="nodePATH" title="مسیر مخفی نود فقط از طریق متغیر محیطی 'PATH' قابل تغییر است">
                     </div>
 
                     <div class="form-group">
-                        <label for="protocol">节点协议</label>
-                        <select id="protocol" title="节点协议" onchange="updateProtocol(); markModified('config')">
+                        <label for="protocol">پروتکل نود</label>
+                        <select id="protocol" title="پروتکل نود" onchange="updateProtocol(); markModified('config')">
                             <option value="vless">VLESS</option>
                             <option value="trojan">Trojan</option>
                         </select>
                     </div>
 
                     <div class="form-group" id="fingerprintGroup">
-                        <label for="fingerprint">指纹伪装</label>
-                        <select id="fingerprint" title="浏览器指纹"
+                        <label for="fingerprint">تقلید اثر انگشت</label>
+                        <select id="fingerprint" title="اثر انگشت مرورگر"
                             onchange="handleFingerprintChange(); markModified('config')">
-                            <option value="chrome">chrome（支持ECH）</option>
-                            <option value="firefox">firefox（支持ECH）</option>
+                            <option value="chrome">chrome (پشتیبانی از ECH)</option>
+                            <option value="firefox">firefox (پشتیبانی از ECH)</option>
                             <option value="safari">safari</option>
                             <option value="ios">ios</option>
                             <option value="android">android</option>
@@ -5634,9 +5632,9 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                         </select>
                     </div>
 
-                    <!--- 节点配置 
+                    <!--- پیکربندی نود 
                 <div class="form-group">
-                    <label>传输协议</label>
+                    <label>پروتکل انتقال</label>
                     <select id="transport" onchange="markModified('config')">
                         <option value="ws">WebSocket</option>
                         <option value="xhttp">XHTTP</option>
@@ -5647,10 +5645,10 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                         <div class="form-group" id="skipVerifyGroup" style="display: none;">
                             <div class="input-wrapper">
                                 <div class="checkbox-group">
-                                    <input type="checkbox" id="skipVerify" title="Xray v26.1.31+版本 不支持跳过TLS证书验证功能"
+                                    <input type="checkbox" id="skipVerify" title="نسخه‌های Xray v26.1.31+ از قابلیت رد کردن تایید گواهی TLS پشتیبانی نمی‌کنند"
                                         onchange="handleSkipVerifyChange(event)">
                                     <label for="skipVerify" class="checkbox-label"
-                                        title="Xray v26.1.31+版本 不支持跳过TLS证书验证功能">跳过证书验证</label>
+                                        title="نسخه‌های Xray v26.1.31+ از قابلیت رد کردن تایید گواهی TLS پشتیبانی نمی‌کنند">رد کردن تایید گواهی</label>
                                 </div>
                             </div>
                         </div>
@@ -5658,9 +5656,9 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                         <div class="form-group" id="randomPathGroup" style="display: none;">
                             <div class="input-wrapper">
                                 <div class="checkbox-group">
-                                    <input type="checkbox" id="randomPath" title="随机伪装路径(自慰功能)"
+                                    <input type="checkbox" id="randomPath" title="مسیر مخفی تصادفی"
                                         onchange="markModified('config')">
-                                    <label for="randomPath" class="checkbox-label" title="随机伪装路径(自慰功能)">随机伪装路径</label>
+                                    <label for="randomPath" class="checkbox-label" title="مسیر مخفی تصادفی">مسیر مخفی تصادفی</label>
                                 </div>
                             </div>
                         </div>
@@ -5668,10 +5666,10 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                         <div class="form-group" id="enable0RTTGroup" style="display: none;">
                             <div class="input-wrapper">
                                 <div class="checkbox-group">
-                                    <input type="checkbox" id="enable0RTT" title="启用0-RTT(小白勿用)"
+                                    <input type="checkbox" id="enable0RTT" title="فعال‌سازی 0-RTT (برای تازه‌کارها نیست)"
                                         onchange="markModified('config')">
                                     <label for="enable0RTT" class="checkbox-label"
-                                        title="启用0-RTT(小白勿用)">启用0-RTT(ed=2560)</label>
+                                        title="فعال‌سازی 0-RTT (برای تازه‌کارها نیست)">فعال‌سازی 0-RTT(ed=2560)</label>
                                 </div>
                             </div>
                         </div>
@@ -5680,10 +5678,10 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                             <div class="input-wrapper">
                                 <div class="checkbox-group">
                                     <input type="checkbox" id="tlsFragmentShadowrocket"
-                                        title="Shadowrocket(小火箭)专用的TLS分片功能"
+                                        title="قابلیت TLS Fragment مخصوص Shadowrocket"
                                         onchange="handleTLSFragmentChange('Shadowrocket'); markModified('config')">
                                     <label for="tlsFragmentShadowrocket" class="checkbox-label"
-                                        title="Shadowrocket(小火箭)专用的TLS分片功能">启用分片(Shadowrocket)</label>
+                                        title="قابلیت TLS Fragment مخصوص Shadowrocket">فعال‌سازی Fragment (Shadowrocket)</label>
                                 </div>
                             </div>
                         </div>
@@ -5691,27 +5689,27 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                         <div class="form-group" id="tlsFragmentHappGroup" style="display: none;">
                             <div class="input-wrapper">
                                 <div class="checkbox-group">
-                                    <input type="checkbox" id="tlsFragmentHapp" title="Happ客户端专用的TLS分片功能"
+                                    <input type="checkbox" id="tlsFragmentHapp" title="قابلیت TLS Fragment مخصوص Happ"
                                         onchange="handleTLSFragmentChange('Happ'); markModified('config')">
                                     <label for="tlsFragmentHapp" class="checkbox-label"
-                                        title="Happ客户端专用的TLS分片功能">启用分片(Happ)</label>
+                                        title="قابلیت TLS Fragment مخصوص Happ">فعال‌سازی Fragment (Happ)</label>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+ 
                     <div class="module-footer">
                         <div class="btn-group">
                             <button type="button" class="btn btn-secondary" onclick="cancelEdit('config')" disabled
-                                id="cancelConfigBtn">取消</button>
+                                id="cancelConfigBtn">لغو</button>
                             <button type="button" class="btn btn-primary" onclick="saveConfig()" disabled
-                                id="saveConfigBtn">保存</button>
+                                id="saveConfigBtn">ذخیره</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 模块3.5: ECH 设置(实验性质) -->
+            <!-- ماژول3.5: تنظیمات ECH (آزمایشی) -->
             <div class="module collapsed advanced-module" id="echModule" style="display: none;">
                 <div class="module-title" onclick="toggleModule(this)">
                     🔐 Encrypted Client Hello
@@ -5721,76 +5719,76 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 </div>
                 <div class="module-content">
                     <div class="form-group">
-                        <label>ECH 设置</label>
+                        <label>تنظیمات ECH</label>
                         <div class="input-wrapper">
                             <div class="checkbox-group">
                                 <input type="checkbox" id="enableECH"
-                                    title="启用ECH可以避免域名阻断-1现象！&#10;&#10;支持版本&#10;v2rayN v7.17.0+&#10;v2rayNG v2.0.0+&#10;Clash.Meta(Mihomo)&#10;Singbox"
+                                    title="فعال‌سازی ECH می‌تواند از مشکل مسدود شدن دامنه جلوگیری کند!&#10;&#10;نسخه‌های پشتیبانی شده&#10;v2rayN v7.17.0+&#10;v2rayNG v2.0.0+&#10;Clash.Meta(Mihomo)&#10;Singbox"
                                     onchange="handleECHEnableChange()">
                                 <label for="enableECH" class="checkbox-label"
-                                    title="启用ECH可以避免域名阻断-1现象！&#10;&#10;支持版本&#10;v2rayN v7.17.0+&#10;v2rayNG v2.0.0+&#10;Clash.Meta(Mihomo)&#10;Singbox">启用</label>
+                                    title="فعال‌سازی ECH می‌تواند از مشکل مسدود شدن دامنه جلوگیری کند!&#10;&#10;نسخه‌های پشتیبانی شده&#10;v2rayN v7.17.0+&#10;v2rayNG v2.0.0+&#10;Clash.Meta(Mihomo)&#10;Singbox">فعال</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group" id="echDNSGroup" style="display: none; align-items: start;">
-                        <label for="echDNSSelect" style="padding-top: 10px;">ECH DNS服务</label>
+                        <label for="echDNSSelect" style="padding-top: 10px;">سرویس DNS ECH</label>
                         <div class="input-wrapper" style="flex-direction: column; align-items: stretch;">
-                            <select id="echDNSSelect" title="ECH DNS服务" style="display: none;"
+                            <select id="echDNSSelect" title="سرویس DNS ECH" style="display: none;"
                                 onchange="onEchDNSSelectChange()">
                                 <option value="udp://208.67.220.220:443" data-region="international">
-                                    udp://208.67.220.220:443（OpenDNS）小白推荐选这个！！！</option>
+                                    udp://208.67.220.220:443 (OpenDNS) تازه‌کارها این را انتخاب کنند!!!</option>
                                 <option value="udp://149.112.112.112:9953" data-region="international">
-                                    udp://149.112.112.112:9953（Quad9）</option>
+                                    udp://149.112.112.112:9953 (Quad9)</option>
                                 <option value="udp://45.90.28.0:5353" data-region="international">
-                                    udp://45.90.28.0:5353（NextDNS）</option>
+                                    udp://45.90.28.0:5353 (NextDNS)</option>
                                 <option value="udp://188.166.206.224:5003" data-region="international">
-                                    udp://188.166.206.224:5003（Tiarap）</option>
+                                    udp://188.166.206.224:5003 (Tiarap)</option>
                                 <option value="https://doh.applied-privacy.net/query" data-region="international">
-                                    https://doh.applied-privacy.net/query（Applied Privacy DoH）</option>
+                                    https://doh.applied-privacy.net/query (Applied Privacy DoH)</option>
                                 <option value="https://odvr.nic.cz/doh" data-region="international">
-                                    https://odvr.nic.cz/doh（CZ.NIC DoH）</option>
+                                    https://odvr.nic.cz/doh (CZ.NIC DoH)</option>
                                 <option value="https://doh.cmliussss.net/CMLiussss" data-region="international">
-                                    https://doh.cmliussss.net/CMLiussss（Cloudflare DoH：CM镜像）</option>
+                                    https://doh.cmliussss.net/CMLiussss (Cloudflare DoH: آینه CM)</option>
                                 <option value="https://doh.cmliussss.com/CMLiussss" data-region="international">
-                                    https://doh.cmliussss.com/CMLiussss（Google DoH：CM镜像）</option>
+                                    https://doh.cmliussss.com/CMLiussss (Google DoH: آینه CM)</option>
                                 <option value="https://dns.alidns.com/dns-query" data-region="domestic">
-                                    https://dns.alidns.com/dns-query（阿里 DoH：国内DNS需搭配设置ECH解析域名，是否可用需自行验证）</option>
+                                    https://dns.alidns.com/dns-query (علی‌بید DoH: DNS داخلی باید با تنظیم SNI ECH تنظیم شود، باید خودتان تأیید کنید)</option>
                                 <option value="https://sm2.doh.pub/dns-query" data-region="domestic">
-                                    https://sm2.doh.pub/dns-query（腾讯国密 DoH：国内DNS需搭配设置ECH解析域名，是否可用需自行验证）</option>
+                                    https://sm2.doh.pub/dns-query (تنسنت GMP DoH: DNS داخلی باید با تنظیم SNI ECH تنظیم شود، باید خودتان تأیید کنید)</option>
                                 <option value="https://doh.360.cn/dns-query" data-region="domestic">
-                                    https://doh.360.cn/dns-query（360 DoH：国内DNS需搭配设置ECH解析域名，是否可用需自行验证）</option>
+                                    https://doh.360.cn/dns-query (360 DoH: DNS داخلی باید با تنظیم SNI ECH تنظیم شود، باید خودتان تأیید کنید)</option>
                                 <option value="https://doh.onedns.net/dns-query" data-region="domestic">
-                                    https://doh.onedns.net/dns-query（OneDNS DoH：国内DNS需搭配设置ECH解析域名，是否可用需自行验证）</option>
-                                <option value="custom">自定义</option>
+                                    https://doh.onedns.net/dns-query (OneDNS DoH: DNS داخلی باید با تنظیم SNI ECH تنظیم شود، باید خودتان تأیید کنید)</option>
+                                <option value="custom">سفارشی</option>
                             </select>
-                            <input type="text" id="echDNSCustomInput" title="自定义ECH DNS服务"
-                                placeholder="udp://... 或 https://..." onchange="onEchDNSCustomInput()"
+                            <input type="text" id="echDNSCustomInput" title="سرویس DNS ECH سفارشی"
+                                placeholder="udp://... یا https://..." onchange="onEchDNSCustomInput()"
                                 style="display: none; margin-top: 8px;">
                             <input type="hidden" id="echDNSValue">
                         </div>
                     </div>
 
                     <div class="form-group" id="echSNIGroup" style="display: none; align-items: start;">
-                        <label for="echSNISelect" style="padding-top: 10px;">ECH 解析域名</label>
+                        <label for="echSNISelect" style="padding-top: 10px;">دامنه SNI ECH</label>
                         <div class="input-wrapper" style="flex-direction: column; align-items: stretch;">
-                            <select id="echSNISelect" title="ECH 解析域名" style="display: none;"
+                            <select id="echSNISelect" title="دامنه SNI ECH" style="display: none;"
                                 onchange="onEchSNISelectChange()">
-                                <option value="__AUTO__">自动获取（使用节点伪装域名）</option>
-                                <option value="cloudflare-ech.com">cloudflare-ech.com（Cloudflare ECH测试域名）小白推荐选这个！！！
+                                <option value="__AUTO__">خودکار (استفاده از دامنه مخفی نود)</option>
+                                <option value="cloudflare-ech.com">cloudflare-ech.com (دامنه تست ECH Cloudflare) تازه‌کارها این را انتخاب کنند!!!
                                 </option>
-                                <option value="crypto.cloudflare.com">crypto.cloudflare.com（Cloudflare密码学服务）</option>
-                                <option value="icook.hk">icook.hk（愛料理 HK）</option>
-                                <option value="cm.edu.kg">cm.edu.kg（CM科技大学）</option>
-                                <option value="godotengine.org">godotengine.org（Godot 开源游戏引擎）</option>
-                                <option value="www.britannica.com">www.britannica.com（大英百科全书）</option>
-                                <option value="www.prometheus.io">www.prometheus.io（Prometheus 监控系统）</option>
-                                <option value="www.kyocera.com">www.kyocera.com（Kyocera 集团官网）</option>
-                                <option value="celestia.org">celestia.org（Celestia 模块化区块链）</option>
-                                <option value="lido.fi">lido.fi（Lido 流动质押）</option>
-                                <option value="custom">自定义</option>
+                                <option value="crypto.cloudflare.com">crypto.cloudflare.com (سرویس رمزنگاری Cloudflare)</option>
+                                <option value="icook.hk">icook.hk (آشپزی HK)</option>
+                                <option value="cm.edu.kg">cm.edu.kg (دانشگاه فناوری CM)</option>
+                                <option value="godotengine.org">godotengine.org (موتور بازی متن‌باز Godot)</option>
+                                <option value="www.britannica.com">www.britannica.com (دانشنامه بریتانیکا)</option>
+                                <option value="www.prometheus.io">www.prometheus.io (سیستم مانیتورینگ Prometheus)</option>
+                                <option value="www.kyocera.com">www.kyocera.com (سایت رسمی گروه Kyocera)</option>
+                                <option value="celestia.org">celestia.org (بلاک‌چین ماژولار Celestia)</option>
+                                <option value="lido.fi">lido.fi (استیکینگ مایع Lido)</option>
+                                <option value="custom">سفارشی</option>
                             </select>
-                            <input type="text" id="echSNICustomInput" title="自定义ECH 解析域名"
+                            <input type="text" id="echSNICustomInput" title="دامنه SNI ECH سفارشی"
                                 placeholder="cloudflare-ech.com" onchange="onEchSNICustomInput()"
                                 style="display: none; margin-top: 8px;">
                             <input type="hidden" id="echSNIValue">
@@ -5799,23 +5797,23 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
                     <div class="module-footer">
                         <button type="button" class="btn btn-ech-help" onclick="showECHHelpModal()"
-                            title="了解 ECH 的相关信息">
-                            💡 为什么需要ECH？ECH又是什么？
+                            title="اطلاعات بیشتر درباره ECH">
+                            💡 چرا به ECH نیاز داریم؟ ECH چیست؟
                         </button>
                         <div class="btn-group">
                             <button type="button" class="btn btn-secondary" onclick="cancelEdit('ech')" disabled
-                                id="cancelEchBtn">取消</button>
+                                id="cancelEchBtn">لغو</button>
                             <button type="button" class="btn btn-primary" onclick="saveEch()" disabled
-                                id="saveEchBtn">保存</button>
+                                id="saveEchBtn">ذخیره</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 模块4: 反代落地设置 -->
+            <!-- ماژول4: تنظیمات پروکسی -->
             <div class="module collapsed advanced-module">
                 <div class="module-title" onclick="toggleModule(this)">
-                    🌐 Cloudflare CDN 访问设置
+                    🌐 تنظیمات دسترسی Cloudflare CDN
                     <svg class="collapse-icon" viewBox="0 0 24 24">
                         <path d="M7 10l5 5 5-5z" />
                     </svg>
@@ -5823,8 +5821,8 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 <div class="module-content">
 
                     <div class="form-group">
-                        <label for="proxyMode">反代模式</label>
-                        <select id="proxyMode" title="反代模式" onchange="updateProxyMode()">
+                        <label for="proxyMode">حالت پروکسی</label>
+                        <select id="proxyMode" title="حالت پروکسی" onchange="updateProxyMode()">
                             <option value="auto">PROXYIP</option>
                             <option value="socks5">SOCKS5</option>
                             <option value="http">HTTP</option>
@@ -5838,10 +5836,10 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                                 <input type="text" id="proxyIP" title="PROXYIP" placeholder="proxyip.cmliussss.net"
                                     onchange="processProxyIP()" oninput="processProxyIP()">
                                 <div class="checkbox-group">
-                                    <input type="checkbox" id="autoProxy" title="启用自动获取: 使用默认内置的PROXYIP"
+                                    <input type="checkbox" id="autoProxy" title="فعال‌سازی دریافت خودکار: استفاده از PROXYIP پیش‌فرض داخلی"
                                         onchange="toggleAutoProxy(); markModified('proxy')">
                                     <label for="autoProxy" class="checkbox-label"
-                                        title="启用自动获取: 使用默认内置的PROXYIP">启用自动获取</label>
+                                        title="فعال‌سازی دریافت خودکار: استفاده از PROXYIP پیش‌فرض داخلی">فعال‌سازی دریافت خودکار</label>
                                 </div>
                             </div>
                         </div>
@@ -5858,10 +5856,10 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                                         placeholder="user:password@127.0.0.1:1080" readonly class="subapi-input">
                                 </div>
                                 <div class="checkbox-group">
-                                    <input type="checkbox" id="globalSocks5" title="启用全局代理: 将非CFCDN站点的流量也走SOCKS5代理"
+                                    <input type="checkbox" id="globalSocks5" title="فعال‌سازی پروکسی جهانی: ترافیک سایت‌های غیر CFCDN نیز از SOCKS5 عبور می‌کند"
                                         onchange="markModified('proxy')">
                                     <label for="globalSocks5" class="checkbox-label"
-                                        title="启用全局代理: 将非CFCDN站点的流量也走SOCKS5代理">启用全局代理</label>
+                                        title="فعال‌سازی پروکسی جهانی: ترافیک سایت‌های غیر CFCDN نیز از SOCKS5 عبور می‌کند">فعال‌سازی پروکسی جهانی</label>
                                 </div>
                             </div>
                         </div>
@@ -5877,10 +5875,10 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                                         placeholder="user:password@127.0.0.1:8080" readonly class="subapi-input">
                                 </div>
                                 <div class="checkbox-group">
-                                    <input type="checkbox" id="globalHTTP" title="启用全局代理: 将非CFCDN站点的流量也走HTTP代理"
+                                    <input type="checkbox" id="globalHTTP" title="فعال‌سازی پروکسی جهانی: ترافیک سایت‌های غیر CFCDN نیز از HTTP عبور می‌کند"
                                         onchange="markModified('proxy')">
                                     <label for="globalHTTP" class="checkbox-label"
-                                        title="启用全局代理: 将非CFCDN站点的流量也走HTTP代理">启用全局代理</label>
+                                        title="فعال‌سازی پروکسی جهانی: ترافیک سایت‌های غیر CFCDN نیز از HTTP عبور می‌کند">فعال‌سازی پروکسی جهانی</label>
                                 </div>
                             </div>
                         </div>
@@ -5888,43 +5886,43 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
                     <div class="module-footer">
                         <button type="button" class="btn btn-proxyip-help" onclick="showProxyIPHelpModal()"
-                            title="了解 ProxyIP 的相关信息">
-                            💡 为什么需要反代？PROXYIP又是什么？
+                            title="اطلاعات بیشتر درباره ProxyIP">
+                            💡 چرا به پروکسی نیاز داریم؟ PROXYIP چیست؟
                         </button>
                         <button type="button" class="btn btn-ech-help btn-path-template-config"
                             id="pathTemplateConfigBtn" onclick="showPathTemplateConfigModal()"
-                            style="display: none; padding: 10px 16px;" title="配置路径模板">
-                            ⚙️ 路径模板配置
+                            style="display: none; padding: 10px 16px;" title="پیکربندی قالب مسیر">
+                            ⚙️ پیکربندی قالب مسیر
                         </button>
                         <button type="button" class="btn btn-search-proxy" id="getMoreProxyIPBtn"
                             onclick="showGetMoreProxyIPModal()" style="display: none; padding: 10px 16px;"
-                            title="从 ProxyIP 列表中选择可用的代理">
-                            🗺️ 获取更多 PROXYIP
+                            title="انتخاب پروکسی از لیست ProxyIP">
+                            🗺️ دریافت PROXYIP بیشتر
                         </button>
                         <button type="button" class="btn btn-search-proxy" id="exploreSocks5Btn"
                             onclick="showExploreSocks5Modal()" style="display: none; padding: 10px 16px;"
-                            title="从SOCKS5列表中选择可用的代理">
-                            🔒 获取更多 SOCKS5
+                            title="انتخاب از لیست SOCKS5">
+                            🔒 دریافت SOCKS5 بیشتر
                         </button>
                         <button type="button" class="btn btn-search-proxy" id="exploreHTTPBtn"
                             onclick="showExploreHTTPModal()" style="display: none; padding: 10px 16px;"
-                            title="从HTTP列表中选择可用的代理">
-                            🌐 获取更多 HTTP
+                            title="انتخاب از لیست HTTP">
+                            🌐 دریافت HTTP بیشتر
                         </button>
                         <div class="btn-group">
                             <button type="button" class="btn btn-secondary" onclick="cancelEdit('proxy')" disabled
-                                id="cancelProxyBtn">取消</button>
+                                id="cancelProxyBtn">لغو</button>
                             <button type="button" class="btn btn-primary" onclick="saveProxy()" disabled
-                                id="saveProxyBtn">保存</button>
+                                id="saveProxyBtn">ذخیره</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 模块5: 订阅转换配置 -->
+            <!-- ماژول5: پیکربندی تبدیل اشتراک -->
             <div class="module collapsed advanced-module">
                 <div class="module-title" onclick="toggleModule(this)">
-                    🔄 订阅转换配置
+                    🔄 پیکربندی تبدیل اشتراک
                     <svg class="collapse-icon" viewBox="0 0 24 24">
                         <path d="M7 10l5 5 5-5z" />
                     </svg>
@@ -5932,20 +5930,20 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 <div class="module-content">
 
                     <div class="form-group">
-                        <label for="subAPI">订阅转换后端</label>
+                        <label for="subAPI">بک‌اند تبدیل اشتراک</label>
                         <div class="readonly-wrapper" onclick="openSubAPIModal()">
-                            <input type="text" id="subAPI" title="订阅转换后端" readonly
+                            <input type="text" id="subAPI" title="بک‌اند تبدیل اشتراک" readonly
                                 placeholder="https://SUBAPI.cmliussss.net" class="subapi-input">
                         </div>
                     </div>
 
                     <div class="form-group" style="align-items: start;">
-                        <label for="subConfigSelect" style="padding-top: 10px;">订阅转换配置文件</label>
+                        <label for="subConfigSelect" style="padding-top: 10px;">فایل پیکربندی تبدیل اشتراک</label>
                         <div class="input-wrapper" style="flex-direction: column; align-items: stretch;">
-                            <select id="subConfigSelect" title="订阅转换配置文件" style="display: none;">
-                                <option value="">正在加载...</option>
+                            <select id="subConfigSelect" title="فایل پیکربندی تبدیل اشتراک" style="display: none;">
+                                <option value="">در حال بارگذاری...</option>
                             </select>
-                            <input type="text" id="subConfigCustomInput" title="自定义订阅转换配置文件URL"
+                            <input type="text" id="subConfigCustomInput" title="URL فایل پیکربندی سفارشی"
                                 placeholder="https://raw.githubusercontent.com/..." onchange="onSubConfigCustomInput()"
                                 style="display: none; margin-top: 8px;">
                             <input type="hidden" id="subConfig">
@@ -5953,11 +5951,11 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                     </div>
 
                     <div class="form-group">
-                        <label for="emoji">Emoji</label>
+                        <label for="emoji">ایموجی</label>
                         <div class="input-wrapper">
                             <div class="checkbox-group">
-                                <input type="checkbox" id="emoji" title="启用Emoji" onchange="markModified('convert')">
-                                <label for="emoji" class="checkbox-label">启用</label>
+                                <input type="checkbox" id="emoji" title="فعال‌سازی ایموجی" onchange="markModified('convert')">
+                                <label for="emoji" class="checkbox-label">فعال</label>
                             </div>
                         </div>
                     </div>
@@ -5965,90 +5963,90 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                     <div class="module-footer">
                         <div class="btn-group">
                             <button type="button" class="btn btn-secondary" onclick="cancelEdit('convert')" disabled
-                                id="cancelConvertBtn">取消</button>
+                                id="cancelConvertBtn">لغو</button>
                             <button type="button" class="btn btn-primary" onclick="saveConvert()" disabled
-                                id="saveConvertBtn">保存</button>
+                                id="saveConvertBtn">ذخیره</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 模块6: 消息通知设置 -->
+            <!-- ماژول6: تنظیمات اعلان پیام -->
             <div class="module collapsed advanced-module">
                 <div class="module-title" onclick="toggleModule(this)">
-                    🔔 消息通知设置
+                    🔔 تنظیمات اعلان پیام
                     <svg class="collapse-icon" viewBox="0 0 24 24">
                         <path d="M7 10l5 5 5-5z" />
                     </svg>
                 </div>
                 <div class="module-content">
 
-                    <!-- Telegram Bot 通知设置 -->
+                    <!-- تنظیمات اعلان Telegram Bot -->
                     <div class="form-group notification-row">
                         <label>
-                            Telegram Bot 通知设置
+                            تنظیمات اعلان Telegram Bot
                             <div class="checkbox-group">
-                                <input type="checkbox" id="telegramEnabled" title="启用TelegramBot通知"
+                                <input type="checkbox" id="telegramEnabled" title="فعال‌سازی اعلان TelegramBot"
                                     onchange="markModified('notification')" disabled>
-                                <label for="telegramEnabled" class="checkbox-label">启用</label>
+                                <label for="telegramEnabled" class="checkbox-label">فعال</label>
                             </div>
                         </label>
                         <div class="notification-controls">
                             <button type="button" class="btn btn-notification-config"
-                                onclick="openTelegramConfigModal()">⚙️参数配置</button>
+                                onclick="openTelegramConfigModal()">⚙️پیکربندی</button>
                             <button type="button" class="btn btn-clear-config"
-                                onclick="clearTelegramConfig()">🗑️清除配置</button>
+                                onclick="clearTelegramConfig()">🗑️پاک کردن</button>
                         </div>
                     </div>
 
-                    <!-- Cloudflare 可用请求数统计 -->
+                    <!-- آمار درخواست‌های موجود Cloudflare -->
                     <div class="form-group notification-row">
                         <label>
-                            Cloudflare Workers/Pages 可用请求数统计
+                            آمار درخواست‌های موجود Cloudflare Workers/Pages
                         </label>
                         <div class="notification-controls">
                             <button type="button" class="btn btn-notification-config"
-                                onclick="openCloudflareConfigModal()">⚙️参数配置</button>
+                                onclick="openCloudflareConfigModal()">⚙️پیکربندی</button>
                             <button type="button" class="btn btn-clear-config"
-                                onclick="clearCloudflareConfig()">🗑️清除配置</button>
+                                onclick="clearCloudflareConfig()">🗑️پاک کردن</button>
                         </div>
                     </div>
 
                     <div class="module-footer">
                         <div class="btn-group">
                             <button type="button" class="btn btn-secondary" onclick="cancelEdit('notification')"
-                                disabled id="cancelNotificationBtn">取消</button>
+                                disabled id="cancelNotificationBtn">لغو</button>
                             <button type="button" class="btn btn-primary" onclick="saveNotification()" disabled
-                                id="saveNotificationBtn">保存</button>
+                                id="saveNotificationBtn">ذخیره</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 模块7: 查看所有日志 -->
+            <!-- ماژول7: مشاهده همه لاگ‌ها -->
             <div class="module collapsed advanced-module">
                 <div class="module-title" onclick="toggleModule(this); loadLogsOnExpand(this)">
-                    📋 查看操作日志
+                    📋 مشاهده لاگ‌های عملیاتی
                     <svg class="collapse-icon" viewBox="0 0 24 24">
                         <path d="M7 10l5 5 5-5z" />
                     </svg>
                 </div>
                 <div class="module-content">
                     <div id="logsContainer" class="logs-container">
-                        <div class="logs-loading">加载中...</div>
+                        <div class="logs-loading">در حال بارگذاری...</div>
                     </div>
                     <div class="logs-footer">
-                        <p class="logs-footer-text">因为KV空间有限，所以只保留4MB的操作日志，当日志大小超过该容量会自动清理最老的日志记录。</p>
-                        <button type="button" class="btn btn-primary btn-all-logs" onclick="showAllLogs()">全部日志</button>
+                        <p class="logs-footer-text">از آنجایی که فضای KV محدود است، فقط 4MB لاگ عملیاتی نگه داری می‌شود. وقتی حجم لاگ از این ظرفیت فراتر رود، قدیمی‌ترین لاگ‌ها به طور خودکار پاک می‌شوند.</p>
+                        <button type="button" class="btn btn-primary btn-all-logs" onclick="showAllLogs()">همه لاگ‌ها</button>
                     </div>
                 </div>
             </div>
 
             <div class="social-links">
-                <!-- 主题切换按钮 -->
-                <button type="button" class="social-link theme-toggle" id="themeToggle" title="切换日间模式"
+                <!-- دکمه تغییر پوسته -->
+                <button type="button" class="social-link theme-toggle" id="themeToggle" title="تغییر به حالت روز"
                     onclick="toggleTheme()">
-                    <!-- 太阳图标 (日间模式显示) -->
+                    <!-- آفتاب (حالت روز) -->
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="theme-icon sun-icon">
                         <circle cx="12" cy="12" r="5" fill="currentColor" />
                         <g stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none">
@@ -6062,12 +6060,12 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
                         </g>
                     </svg>
-                    <!-- 月亮图标 (夜间模式显示) -->
+                    <!-- آیکون ماه (حالت شب) -->
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="theme-icon moon-icon">
                         <path fill="currentColor" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
                     </svg>
                 </button>
-                <!-- GitHub 链接 -->
+                <!-- لینک GitHub -->
                 <a href="https://github.com/IRNova/novatunnel" target="_blank" rel="noopener" class="social-link"
                     title="GitHub">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -6075,15 +6073,15 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                             d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z" />
                     </svg>
                 </a>
-                <!-- Telegram 链接 -->
+                <!-- لینک Telegram -->
                 <a href="https://t.me/CMLiussss" target="_blank" rel="noopener" class="social-link" title="Telegram">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path fill="currentColor"
                             d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.49-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635z" />
                     </svg>
                 </a>
-                <!-- 返回顶部按钮 -->
-                <button type="button" class="social-link" title="返回顶部" onclick="scrollToTop()">
+                <!-- دکمه بازگشت به بالا -->
+                <button type="button" class="social-link" title="بازگشت به بالا" onclick="scrollToTop()">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" d="M12 19V5M5 12l7-7l7 7" />
@@ -6093,239 +6091,238 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
         </div>
     </div>
 
-    <!-- 二维码弹窗 -->
+    <!-- پاپ‌آپ QR کد -->
     <div class="modal-overlay" id="qrcodeModal" onclick="closeQRCode(event)">
         <div class="modal" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeQRCode()">×</button>
             <div id="qrcodeContainer" class="qrcode-container"></div>
-            <button type="button" class="btn btn-primary btn-close-modal" onclick="closeQRCode()">关闭</button>
+            <button type="button" class="btn btn-primary btn-close-modal" onclick="closeQRCode()">بستن</button>
         </div>
     </div>
 
-    <!-- 跳过证书验证警告弹窗 -->
+    <!-- هشدار رد کردن تایید گواهی -->
     <div class="modal-overlay" id="skipVerifyWarningModal" onclick="closeSkipVerifyWarning(event)">
         <div class="modal skipverify-warning-modal" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeSkipVerifyWarning()">×</button>
             <div class="skipverify-header">
                 <div class="skipverify-icon">⚠️</div>
-                <h2 class="skipverify-title">关于 跳过证书验证</h2>
+                <h2 class="skipverify-title">درباره رد کردن تایید گواهی</h2>
             </div>
             <div class="skipverify-content" style="text-align: left;">
-                <p class="skipverify-text"><strong>重要更新：</strong><a
+                <p class="skipverify-text"><strong>به‌روزرسانی مهم:</strong><a
                         href="https://github.com/XTLS/Xray-core/releases/tag/v26.1.31" target="_blank" rel="noopener"
                         class="skipverify-link">Xray-core v26.1.31</a>
-                    及后续版本将陆续停止支持"<strong>跳过证书验证</strong>"功能，这是<strong>核心安全策略调整</strong>（<a
+                    و نسخه‌های بعدی به تدریج پشتیبانی از "<strong>رد کردن تایید گواهی</strong>" را متوقف می‌کنند، این یک <strong>تنظیم امنیتی هسته‌ای</strong> است (<a
                         href="https://github.com/XTLS/Xray-core/commit/2c92339f95fe9aa493b6ae51d3b07017a44c4014"
-                        target="_blank" rel="noopener" class="skipverify-link">详情</a>）。</p>
-                <p class="skipverify-text"><strong>影响范围：</strong>如果你的客户端（如 <strong>v2rayN、v2rayNG、Happ</strong> 等）使用的是
-                    <strong>Xray 内核</strong>，则开启该功能将导致 <strong class="skipverify-title">内核运行失败</strong>。
+                        target="_blank" rel="noopener" class="skipverify-link">جزئیات</a>).</p>
+                <p class="skipverify-text"><strong>دامنه تأثیر:</strong> اگر کلاینت شما (مانند <strong>v2rayN، v2rayNG، Happ</strong> و غیره) از
+                    <strong>هسته Xray</strong> استفاده می‌کند، فعال‌سازی این قابلیت باعث <strong class="skipverify-title">خرابی هسته</strong> می‌شود.
                 </p>
             </div>
             <div class="skipverify-buttons">
                 <button type="button" class="btn btn-confirm-skip-verify btn-confirm-reset"
-                    onclick="confirmSkipVerify()">确认开启</button>
-                <button type="button" class="btn btn-secondary" onclick="closeSkipVerifyWarning()">关闭</button>
+                    onclick="confirmSkipVerify()">تأیید فعال‌سازی</button>
+                <button type="button" class="btn btn-secondary" onclick="closeSkipVerifyWarning()">بستن</button>
             </div>
         </div>
     </div>
 
-    <!-- 重置配置确认弹窗 -->
+    <!-- پاپ‌آپ تأیید بازنشانی پیکربندی -->
     <div class="modal-overlay" id="resetModal" onclick="closeResetModal(event)">
         <div class="modal" onclick="event.stopPropagation()">
-            <h2 class="reset-modal-title">⚠️ 重置配置</h2>
-            <p class="reset-modal-description">重置配置将会初始化所有设置，包括订阅生成、节点信息、反代配置等。此操作不可撤销，请谨慎操作。</p>
-            <p class="reset-modal-confirm">确定是否完全重置配置？</p>
+            <h2 class="reset-modal-title">⚠️ بازنشانی پیکربندی</h2>
+            <p class="reset-modal-description">بازنشانی پیکربندی تمام تنظیمات را راه‌اندازی می‌کند، از جمله تولید اشتراک، اطلاعات نود، پیکربندی پروکسی و غیره. این عملیات قابل بازگشت نیست، لطفاً با احتیاط عمل کنید.</p>
+            <p class="reset-modal-confirm">آیا مطمئن هستید که می‌خواهید پیکربندی را به طور کامل بازنشانی کنید؟</p>
             <div class="reset-modal-buttons">
-                <button type="button" class="btn btn-primary btn-confirm-reset" onclick="confirmReset()">确定重置</button>
-                <button type="button" class="btn btn-secondary" onclick="closeResetModal()">取消重置</button>
+                <button type="button" class="btn btn-primary btn-confirm-reset" onclick="confirmReset()">تأیید بازنشانی</button>
+                <button type="button" class="btn btn-secondary" onclick="closeResetModal()">لغو بازنشانی</button>
             </div>
         </div>
     </div>
 
-    <!-- 清除Telegram配置确认弹窗 -->
+    <!-- پاپ‌آپ تأیید پاک کردن پیکربندی Telegram -->
     <div class="modal-overlay" id="clearTelegramModal" onclick="closeClearTelegramModal(event)">
         <div class="modal" onclick="event.stopPropagation()">
-            <h2 class="reset-modal-title">⚠️ 清除 Telegram 配置</h2>
-            <p class="reset-modal-description">清除 Telegram Bot 通知配置后，将无法继续接收 Telegram 消息通知。此操作不可撤销，请谨慎操作。</p>
-            <p class="reset-modal-confirm">确定是否清除 Telegram 通知配置？</p>
+            <h2 class="reset-modal-title">⚠️ پاک کردن پیکربندی Telegram</h2>
+            <p class="reset-modal-description">پس از پاک کردن پیکربندی اعلان Telegram Bot، دیگر نمی‌توانید اعلان‌های پیام Telegram دریافت کنید. این عملیات قابل بازگشت نیست، لطفاً با احتیاط عمل کنید.</p>
+            <p class="reset-modal-confirm">آیا مطمئن هستید که می‌خواهید پیکربندی اعلان Telegram را پاک کنید؟</p>
             <div class="reset-modal-buttons">
                 <button type="button" class="btn btn-primary btn-confirm-reset"
-                    onclick="confirmClearTelegramConfig()">确定清除</button>
-                <button type="button" class="btn btn-secondary" onclick="closeClearTelegramModal()">取消</button>
+                    onclick="confirmClearTelegramConfig()">تأیید پاک کردن</button>
+                <button type="button" class="btn btn-secondary" onclick="closeClearTelegramModal()">لغو</button>
             </div>
         </div>
     </div>
 
-    <!-- 清除Cloudflare配置确认弹窗 -->
+    <!-- پاپ‌آپ تأیید پاک کردن پیکربندی Cloudflare -->
     <div class="modal-overlay" id="clearCloudflareModal" onclick="closeClearCloudflareModal(event)">
         <div class="modal" onclick="event.stopPropagation()">
-            <h2 class="reset-modal-title">⚠️ 清除 Cloudflare 配置</h2>
-            <p class="reset-modal-description">清除 Cloudflare 配置后，将无法继续统计 Workers/Pages 的请求数。此操作不可撤销，请谨慎操作。</p>
-            <p class="reset-modal-confirm">确定是否清除 Cloudflare 通知配置？</p>
+            <h2 class="reset-modal-title">⚠️ پاک کردن پیکربندی Cloudflare</h2>
+            <p class="reset-modal-description">پس از پاک کردن پیکربندی Cloudflare، دیگر نمی‌توانید آمار درخواست‌های Workers/Pages را مشاهده کنید. این عملیات قابل بازگشت نیست، لطفاً با احتیاط عمل کنید.</p>
+            <p class="reset-modal-confirm">آیا مطمئن هستید که می‌خواهید پیکربندی اعلان Cloudflare را پاک کنید؟</p>
             <div class="reset-modal-buttons">
                 <button type="button" class="btn btn-primary btn-confirm-reset"
-                    onclick="confirmClearCloudflareConfig()">确定清除</button>
-                <button type="button" class="btn btn-secondary" onclick="closeClearCloudflareModal()">取消</button>
+                    onclick="confirmClearCloudflareConfig()">تأیید پاک کردن</button>
+                <button type="button" class="btn btn-secondary" onclick="closeClearCloudflareModal()">لغو</button>
             </div>
         </div>
     </div>
 
-    <!-- 日志查看弹窗 -->
+    <!-- پاپ‌آپ مشاهده لاگ‌ها -->
     <div class="modal-overlay" id="logsModal">
         <div class="modal logs-modal" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeLogsModal()">×</button>
-            <h2 class="logs-modal-title">📋 所有操作日志</h2>
+            <h2 class="logs-modal-title">📋 همه لاگ‌های عملیاتی</h2>
             <div id="allLogsContainer" class="logs-all-container"></div>
-            <button type="button" class="btn btn-primary btn-close-modal" onclick="closeLogsModal()">关闭</button>
+            <button type="button" class="btn btn-primary btn-close-modal" onclick="closeLogsModal()">بستن</button>
         </div>
     </div>
 
-    <!-- 订阅转换后端设置弹窗 -->
+    <!-- پاپ‌آپ تنظیمات بک‌اند تبدیل اشتراک -->
     <div class="modal-overlay" id="subAPIModal">
         <div class="modal" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeSubAPIModal()">×</button>
-            <h2 class="subapi-modal-title">⚙️ 订阅转换后端</h2>
+            <h2 class="subapi-modal-title">⚙️ بک‌اند تبدیل اشتراک</h2>
             <div class="form-group subapi-form-group">
-                <label>订阅转换后端</label>
+                <label>بک‌اند تبدیل اشتراک</label>
                 <select id="subAPISelect" onchange="handleSubAPISelectChange()">
-                    <option value="">-- 加载中，请稍候 --</option>
+                    <option value="">-- در حال بارگذاری، لطفاً صبر کنید --</option>
                 </select>
             </div>
             <div class="form-group subapi-form-group" id="customSubAPIInputGroup" style="display: none;">
-                <label>自定义后端地址</label>
-                <input type="text" id="testSubAPIInput" placeholder="输入订阅转换后端地址">
+                <label>آدرس بک‌اند سفارشی</label>
+                <input type="text" id="testSubAPIInput" placeholder="آدرس بک‌اند تبدیل اشتراک را وارد کنید">
             </div>
             <div id="subAPIStatus" class="subapi-status"></div>
             <div class="subapi-buttons">
-                <button type="button" class="btn btn-primary btn-test-api" onclick="testSubAPI()">可用性验证</button>
+                <button type="button" class="btn btn-primary btn-test-api" onclick="testSubAPI()">تأیید دسترسی</button>
                 <button type="button" class="btn btn-primary btn-confirm-api" id="subAPIConfirmBtn"
-                    onclick="confirmSubAPI()" disabled>确定</button>
-                <button type="button" class="btn btn-secondary btn-cancel-api" onclick="closeSubAPIModal()">取消</button>
+                    onclick="confirmSubAPI()" disabled>تأیید</button>
+                <button type="button" class="btn btn-secondary btn-cancel-api" onclick="closeSubAPIModal()">لغو</button>
             </div>
         </div>
     </div>
 
-    <!-- TelegramBot 通知设置弹窗 -->
+    <!-- پاپ‌آپ تنظیمات اعلان TelegramBot -->
     <div class="modal-overlay" id="telegramConfigModal">
         <div class="modal" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeTelegramConfigModal()">×</button>
-            <h2 class="subapi-modal-title">🤖 TelegramBot 通知参数配置</h2>
+            <h2 class="subapi-modal-title">🤖 پیکربندی پارامترهای اعلان TelegramBot</h2>
             <div class="form-group subapi-form-group">
-                <label>Bot Token</label>
-                <input type="text" id="telegramBotToken" placeholder="输入Telegram Bot Token">
+                <label>توکن Bot</label>
+                <input type="text" id="telegramBotToken" placeholder="توکن Telegram Bot را وارد کنید">
             </div>
             <div class="form-group subapi-form-group">
                 <label>Chat ID</label>
-                <input type="text" id="telegramChatID" placeholder="输入Chat ID">
+                <input type="text" id="telegramChatID" placeholder="Chat ID را وارد کنید">
             </div>
             <div id="telegramStatus" class="subapi-status"></div>
             <div class="subapi-buttons">
-                <button type="button" class="btn btn-primary btn-test-api" onclick="testTelegramConfig()">可用性验证</button>
+                <button type="button" class="btn btn-primary btn-test-api" onclick="testTelegramConfig()">تأیید دسترسی</button>
                 <button type="button" class="btn btn-primary btn-confirm-api" id="telegramConfirmBtn"
-                    onclick="confirmTelegramConfig()" disabled>保存</button>
+                    onclick="confirmTelegramConfig()" disabled>ذخیره</button>
                 <button type="button" class="btn btn-secondary btn-cancel-api"
-                    onclick="closeTelegramConfigModal()">取消</button>
+                    onclick="closeTelegramConfigModal()">لغو</button>
             </div>
         </div>
     </div>
 
-    <!-- Cloudflare 通知设置弹窗 -->
+    <!-- پاپ‌آپ تنظیمات اعلان Cloudflare -->
     <div class="modal-overlay" id="cloudflareConfigModal">
         <div class="modal" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeCloudflareConfigModal()">×</button>
-            <h2 class="subapi-modal-title">☁️ Workers/Pages 可用请求数统计</h2>
+            <h2 class="subapi-modal-title">�️ آمار درخواست‌های موجود Workers/Pages</h2>
 
-            <!-- 请求方案选择 -->
+            <!-- انتخاب طرح درخواست -->
             <div class="form-group subapi-form-group">
-                <label>请求方案</label>
-                <select id="cloudflareAuthMethod" title="请求方案" onchange="updateCloudflareAuthMethod()">
+                <label>طرح درخواست</label>
+                <select id="cloudflareAuthMethod" title="طرح درخواست" onchange="updateCloudflareAuthMethod()">
                     <option id="usageapiOption" value="usageapi">UsageAPI</option>
                     <option value="accountid">Account ID + API Token</option>
                     <option value="email">Email + Global API Key</option>
                 </select>
             </div>
 
-            <!-- Email + Global API Key 方案 -->
+            <!-- طرح Email + Global API Key -->
             <div id="cloudflareEmailSection">
                 <div class="form-group subapi-form-group">
                     <label>Email</label>
-                    <input type="text" id="cloudflareEmail" placeholder="输入Cloudflare账户邮箱">
+                    <input type="text" id="cloudflareEmail" placeholder="ایمیل حساب Cloudflare را وارد کنید">
                 </div>
                 <div class="form-group subapi-form-group">
                     <label>Global API Key</label>
-                    <input type="password" id="cloudflareGlobalAPIKey" placeholder="输入Global API Key">
+                    <input type="password" id="cloudflareGlobalAPIKey" placeholder="Global API Key را وارد کنید">
                 </div>
             </div>
 
-            <!-- Account ID + API Token 方案 -->
+            <!-- طرح Account ID + API Token -->
             <div id="cloudflareAccountIDSection" class="hidden-section">
                 <div class="form-group subapi-form-group">
                     <label>Account ID</label>
-                    <input type="text" id="cloudflareAccountID" placeholder="输入Account ID">
+                    <input type="text" id="cloudflareAccountID" placeholder="Account ID را وارد کنید">
                 </div>
                 <div class="form-group subapi-form-group">
                     <label>API Token</label>
-                    <input type="password" id="cloudflareAPIToken" placeholder="输入API Token">
-                    <small style="font-size: 12px; color: #9ca3af; margin-top: 6px; display: block;">💡 API令牌权限 使用
-                        "阅读分析数据和日志" 模板即可</small>
+                    <input type="password" id="cloudflareAPIToken" placeholder="API Token را وارد کنید">
+                    <small style="font-size: 12px; color: #9ca3af; margin-top: 6px; display: block;">💡 مجوزهای API Token از قالب "خواندن داده‌ها و لاگ‌های تجزیه‌وتحلیل" استفاده کنید</small>
                 </div>
             </div>
 
-            <!-- UsageAPI 方案 -->
+            <!-- طرح UsageAPI -->
             <div id="cloudflareUsageAPISection" class="hidden-section">
                 <div class="form-group subapi-form-group">
-                    <label>UsageAPI地址</label>
+                    <label>آدرس UsageAPI</label>
                     <input type="text" id="cloudflareUsageAPI"
                         placeholder="https://usagepanel.pages.dev/usage.json?token=4941477918857b30d8234ac19441ebb2">
-                    <small style="font-size: 12px; color: #9ca3af; margin-top: 6px; display: block;">💡 支持多账号汇总，可通过部署 <a
+                    <small style="font-size: 12px; color: #9ca3af; margin-top: 6px; display: block;">💡 پشتیبانی از تجمیع چند حساب، می‌توانید از طریق استقرار <a
                             href="https://github.com/cmliu/CF-Workers-UsagePanel" target="_blank" rel="noopener"
-                            style="color: #3b82f6; text-decoration: none;">UsagePanel</a> 项目获取 UsageAPI 地址</small>
+                            style="color: #3b82f6; text-decoration: none;">UsagePanel</a> پروژه برای دریافت آدرس UsageAPI</small>
                 </div>
             </div>
 
-            <!-- 验证状态提示 -->
+            <!-- پیام وضعیت تأیید -->
             <div id="cloudflareStatus" class="subapi-status"></div>
 
-            <!-- 按钮组 -->
+            <!-- دکمه‌ها -->
             <div class="subapi-buttons">
                 <button type="button" class="btn btn-primary btn-test-api"
-                    onclick="testCloudflareConfig()">可用性验证</button>
+                    onclick="testCloudflareConfig()">تأیید دسترسی</button>
                 <button type="button" class="btn btn-primary btn-confirm-api" id="cloudflareConfirmBtn"
-                    onclick="confirmCloudflareConfig()" disabled>保存</button>
+                    onclick="confirmCloudflareConfig()" disabled>ذخیره</button>
                 <button type="button" class="btn btn-secondary btn-cancel-api"
-                    onclick="closeCloudflareConfigModal()">取消</button>
+                    onclick="closeCloudflareConfigModal()">لغو</button>
             </div>
         </div>
     </div>
 
-    <!-- 在线优选弹窗 -->
+    <!-- پاپ‌آپ بهینه‌سازی آنلاین -->
     <div class="modal-overlay" id="onlineOptimizeModal">
         <div class="modal optimize-modal" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeOnlineOptimizeModal()">×</button>
-            <h2 class="optimize-modal-title">🚀 在线优选</h2>
+            <h2 class="optimize-modal-title">🚀 بهینه‌سازی آنلاین</h2>
 
-            <!-- IP检测信息 -->
+            <!-- اطلاعات تشخیص IP -->
             <div id="ipDetectionBox" class="ip-detection-box">
                 <div class="ip-detection-info">
-                    正在检测您的网络环境...
+                    در حال تشخیص محیط شبکه شما...
                 </div>
             </div>
 
-            <!-- 参数选择 -->
+            <!-- انتخاب پارامترها -->
             <div class="optimize-params-row">
                 <div class="form-group">
-                    <label for="optimizeIPLibrary">IP库：</label>
+                    <label for="optimizeIPLibrary">کتابخانه IP:</label>
                     <select id="optimizeIPLibrary">
-                        <option value="cf-official">CF官方列表</option>
-                        <option value="cm-list">CM整理列表</option>
-                        <option value="as13335">AS13335列表</option>
-                        <option value="as209242">AS209242列表</option>
-                        <option value="reverse-proxy">CM反代列表</option>
+                        <option value="cf-official">لیست رسمی CF</option>
+                        <option value="cm-list">لیست CM</option>
+                        <option value="as13335">لیست AS13335</option>
+                        <option value="as209242">لیست AS209242</option>
+                        <option value="reverse-proxy">لیست پروکسی معکوس CM</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="optimizePort">端口：</label>
+                    <label for="optimizePort">پورت:</label>
                     <select id="optimizePort">
                         <option value="443">443</option>
                         <option value="2053">2053</option>
@@ -6337,90 +6334,90 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 </div>
 
                 <div class="form-group">
-                    <label for="optimizeConcurrency">测试线程数：</label>
+                    <label for="optimizeConcurrency">تعداد رشته‌های تست:</label>
                     <input type="number" id="optimizeConcurrency" min="1" max="32" value="8"
                         class="optimize-concurrency-input" placeholder="1-32" oninput="validateConcurrency(this)"
                         onchange="validateConcurrency(this)">
                 </div>
             </div>
 
-            <!-- 进度条 -->
+            <!-- نوار پیشرفت -->
             <div class="optimize-progress-bar hidden-section" id="optimizeProgressBar">
                 <div class="optimize-progress-fill" id="optimizeProgressFill"></div>
-                <div class="optimize-progress-text" id="optimizeProgressText">0/512 (0.00%) - 成功: 0, 失败: 0</div>
+                <div class="optimize-progress-text" id="optimizeProgressText">0/512 (0.00%) - موفق: 0، ناموفق: 0</div>
             </div>
 
-            <!-- 结果选项卡 -->
+            <!-- تب‌های نتایج -->
             <div id="optimizeResultsTabs" class="optimize-results-tabs hidden-section"></div>
 
-            <!-- 结果内容 -->
+            <!-- محتوای نتایج -->
             <div id="optimizeResultsContent" class="optimize-results-content hidden-section"></div>
 
-            <!-- 按钮组 -->
+            <!-- دکمه‌ها -->
             <div class="optimize-buttons">
-                <span class="save-tip">💡 保存提示：仅保存延迟最低的前16个优选IP</span>
+                <span class="save-tip">💡 نکته ذخیره: فقط 16 IP با کمترین تأخیر ذخیره می‌شوند</span>
                 <button type="button" class="btn btn-start-optimize" id="btnStartOptimize"
-                    onclick="startOptimize()">开始优选</button>
+                    onclick="startOptimize()">شروع بهینه‌سازی</button>
                 <button type="button" class="btn btn-save-override" id="btnSaveOverride"
-                    onclick="saveOptimizeResults('override')" disabled>覆盖保存</button>
+                    onclick="saveOptimizeResults('override')" disabled>ذخیره با جایگزینی</button>
                 <button type="button" class="btn btn-save-append" id="btnSaveAppend"
-                    onclick="saveOptimizeResults('append')" disabled>追加保存</button>
-                <button type="button" class="btn btn-secondary" onclick="closeOnlineOptimizeModal()">关闭</button>
+                    onclick="saveOptimizeResults('append')" disabled>ذخیره الحاقی</button>
+                <button type="button" class="btn btn-secondary" onclick="closeOnlineOptimizeModal()">بستن</button>
             </div>
         </div>
     </div>
 
-    <!-- API优选模态框 -->
+    <!-- پاپ‌آپ بهینه‌سازی API -->
     <div class="modal-overlay" id="apiOptimizeModal">
         <div class="modal api-optimize-modal" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeAPIOptimizeModal()">×</button>
-            <h2 class="api-optimize-modal-title">🔌 订阅接口</h2>
+            <h2 class="api-optimize-modal-title">🔌 رابط اشتراک</h2>
 
-            <!-- API URL 输入 -->
+            <!-- ورودی URL API -->
             <div class="api-form-group">
                 <div class="api-form-row">
-                    <label>API URL:</label>
-                    <input type="text" id="apiOptimizeURL" placeholder="请输入 优选API地址 或 需要汇聚的订阅地址"
-                        title="请输入 优选API地址 或 需要汇聚的订阅地址" oninput="autoConvertGitHubURL(); autoDetectPortFromURL()">
+                    <label>URL API:</label>
+                    <input type="text" id="apiOptimizeURL" placeholder="لطفاً آدرس API بهینه‌سازی یا آدرس اشتراک برای تجمیع را وارد کنید"
+                        title="لطفاً آدرس API بهینه‌سازی یا آدرس اشتراک برای تجمیع را وارد کنید" oninput="autoConvertGitHubURL(); autoDetectPortFromURL()">
                 </div>
             </div>
 
-            <!-- 默认端口输入 -->
+            <!-- ورودی پورت پیش‌فرض -->
             <div class="api-form-group">
                 <div class="api-form-row">
-                    <label>默认端口:</label>
+                    <label>پورت پیش‌فرض:</label>
                     <input type="number" id="apiOptimizePort" value="443" min="1" max="65535" placeholder="1-65535"
-                        title="默认端口(1-65535)">
+                        title="پورت پیش‌فرض (1-65535)">
                 </div>
             </div>
 
-            <!-- 结果显示区域 -->
+            <!-- ناحیه نمایش نتایج -->
             <div class="api-results-container">
-                <label class="api-results-label">接口结果:</label>
+                <label class="api-results-label">نتایج رابط:</label>
                 <div class="line-editor" id="apiResultsEditor">
                     <div class="gutter" aria-hidden="true"></div>
                     <div class="editor-area">
                         <pre class="mirror" aria-hidden="true"></pre>
-                        <textarea id="apiOptimizeResults" title="API接口结果" placeholder="接口返回结果将显示在这里，每行一个地址"
+                        <textarea id="apiOptimizeResults" title="نتایج رابط API" placeholder="نتایج API در اینجا نمایش داده می‌شود، هر خط یک آدرس"
                             readonly></textarea>
                     </div>
                 </div>
             </div>
 
-            <!-- 按钮组 -->
+            <!-- دکمه‌ها -->
             <div class="api-buttons">
                 <button type="button" class="btn btn-verify-api" id="btnVerifyAPI"
-                    onclick="verifyAPIOptimize()">可用性验证</button>
+                    onclick="verifyAPIOptimize()">تأیید دسترسی</button>
                 <button type="button" class="btn btn-append-api" id="btnAppendAPI" onclick="appendAPIToCustom()"
-                    disabled>追加API</button>
+                    disabled>الحاق API</button>
                 <button type="button" class="btn btn-append-results" id="btnAppendResults"
-                    onclick="appendResultsToCustom()" disabled>追加结果</button>
-                <button type="button" class="btn btn-close-api" onclick="closeAPIOptimizeModal()">关闭</button>
+                    onclick="appendResultsToCustom()" disabled>الحاق نتایج</button>
+                <button type="button" class="btn btn-close-api" onclick="closeAPIOptimizeModal()">بستن</button>
             </div>
         </div>
     </div>
 
-    <!-- 代理验证模态框 -->
+    <!-- پاپ‌آپ تأیید پروکسی -->
     <div class="modal-overlay" id="proxyVerificationModal">
         <div class="modal" id="proxyVerificationContent" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeProxyVerificationModal()">×</button>
@@ -6431,7 +6428,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             <div class="form-group" style="margin-bottom: 20px;">
                 <label id="proxyVerificationLabel" for="proxyVerificationInput"
                     style="display: block; margin-bottom: 10px; font-weight: 600;"></label>
-                <input type="text" id="proxyVerificationInput" title="代理地址"
+                <input type="text" id="proxyVerificationInput" title="آدرس پروکسی"
                     style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 14px;">
             </div>
 
@@ -6441,34 +6438,34 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
             <div class="api-buttons" style="gap: 10px; justify-content: space-between;">
                 <button type="button" class="btn btn-verify-api" onclick="verifyProxyAvailability()">
-                    可用性验证
+                    تأیید دسترسی
                 </button>
                 <button type="button" class="btn btn-append-api" id="proxyConfirmBtn" onclick="confirmProxyAddress()"
                     style="opacity: 0.5;" disabled>
-                    确定
+                    تأیید
                 </button>
                 <button type="button" class="btn btn-close-api" onclick="closeProxyVerificationModal()">
-                    取消
+                    لغو
                 </button>
             </div>
-            <!-- 用于移动端布局的占位符 -->
+            <!-- فضای نگهدارنده برای طرح‌بندی موبایل -->
             <div class="btn-append-results" style="display: none;"></div>
         </div>
     </div>
     </div>
 
-    <!-- ProxyIP 帮助科普弹窗 -->
+    <!-- پاپ‌آپ راهنمای ProxyIP -->
     <div class="modal-overlay" id="proxyIPHelpModal" onclick="closeProxyIPHelpModal(event)">
         <div class="modal proxyip-help-modal" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeProxyIPHelpModal()">×</button>
 
-            <!-- 简易模式 -->
+            <!-- حالت ساده -->
             <div id="proxyIPHelpSimple" style="display: none;">
                 <div class="api-docs">
-                    <h2 class="section-title">🤔 为什么需要反代模式？PROXYIP又是什么？</h2>
+                    <h2 class="section-title">🤔 چرا به حالت پروکسی نیاز داریم؟ PROXYIP چیست؟</h2>
 
                     <div class="simple-explanation">
-                        <strong>用最简单的话解释：</strong><br><br>
+                        <strong>به ساده‌ترین زبان توضیح می‌دهیم:</strong><br><br>
 
                         <strong>🚀 مشکل این است:</strong><br>
                         سرویس Nova Tunnel ما روی Cloudflare Workers میزبانی می‌شود. اما Cloudflare محدودیتی دارد - کارگران آنها نمی‌توانند مستقیماً به Cloudflare
@@ -6487,7 +6484,103 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 </div>
             </div>
 
-            <!-- 详细模式 -->
+            <!-- حالت جزئیات -->
+            <div id="proxyIPHelpDetail" style="display: block;">
+                <div class="api-docs">
+                    <h2 class="section-title">🤔 چرا به حالت پروکسی نیاز داریم؟ PROXYIP چیست؟</h2>
+                    <h3 style="color: var(--text-primary); margin: 24px 0 16px;">❓ چرا به حالت پروکسی نیاز داریم؟</h3>
+                    <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
+                        بر اساس <a
+                            href="https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/" target="_blank"
+                            rel="noopener" style="color: var(--primary-color); text-decoration: none;">مستندات TCP Sockets
+                            Cloudflare Workers</a>، محدودیت‌های فنی زیر وجود دارد:
+                    </p>
+                    <div class="code-block">
+                        ⚠️ پورت‌های TCP خروجی به <a href="https://www.cloudflare.com/ips/" target="_blank"
+                            rel="noopener" style="color: inherit; text-decoration: underline;">محدوده‌های IP Cloudflare
+                            ↗</a> به طور موقت مسدود شده‌اند، اما به زودی فعال می‌شوند.
+                    </div>
+
+                    <p style="margin: 16px 0; line-height: 1.8; color: var(--text-secondary);">
+                        این به این معناست که Cloudflare Workers نمی‌تواند مستقیماً به محدوده IP‌های Cloudflare متصل شود. برای حل این محدودیت، باید از سرورهای شخص ثالث به عنوان «پل» استفاده کرد:
+                    </p>
+
+                    <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
+                        و <b>Nova Tunnel</b> ما یک سرویس پروکسی است که روی Cloudflare Workers مستقر است. طبق سیاست‌های محدودیت Cloudflare Workers، گره‌های Workers
+                        نمی‌توانند مستقیماً به محدوده IP‌های Cloudflare متصل شوند. این به این معناست:
+                    </p>
+                    <ul style="margin: 12px 0 16px; padding-left: 20px; line-height: 1.8;">
+                        <li style="margin-bottom: 8px; color: var(--text-secondary);">✅ می‌تواند به سایت‌هایی که از Cloudflare CDN استفاده نمی‌کنند به طور عادی دسترسی داشته باشد</li>
+                        <li style="color: var(--text-secondary);">❌ نمی‌تواند مستقیماً به سایت‌های میزبانی شده توسط Cloudflare CDN دسترسی داشته باشد</li>
+                    </ul>
+                    <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
+                        بنابراین حالت پروکسی برای حل این مشکل نیاز است. حالت پروکسی با استفاده از سرور شخص ثالث به عنوان «واسطه» به Workers کمک می‌کند تا این محدودیت را دور بزند.
+                    </p>
+
+                    <div
+                        style="background: var(--bg-secondary); padding: 20px; border-radius: var(--border-radius-sm); margin: 20px 0;">
+                        <div
+                            style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 16px;">
+                            <div
+                                style="background: #e3f2fd; padding: 12px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px;">
+                                <div style="font-weight: 600; color: #1976d2;">Cloudflare Workers</div>
+                                <div style="font-size: 0.9rem; color: var(--text-secondary);">ارسال درخواست</div>
+                            </div>
+                            <div style="color: var(--primary-color); font-size: 1.5rem;">→</div>
+                            <div
+                                style="background: #f3e5f5; padding: 12px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px;">
+                                <div style="font-weight: 600; color: #7b1fa2;">سرور PROXYIP/SOCKS5/HTTP</div>
+                                <div style="font-size: 0.9rem; color: var(--text-secondary);">پروکسی شخص ثالث</div>
+                            </div>
+                            <div style="color: var(--primary-color); font-size: 1.5rem;">→</div>
+                            <div
+                                style="background: #e8f5e8; padding: 12px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px;">
+                                <div style="font-weight: 600; color: #388e3c;">سرویس Cloudflare</div>
+                                <div style="font-size: 0.9rem; color: var(--text-secondary);">سرویس مقصد</div>
+                            </div>
+                        </div>
+                        <p style="text-align: center; color: var(--text-secondary); font-size: 0.95rem; margin: 0;">
+                            با پروکسی معکوس پورت 443 Cloudflare توسط سرور شخص ثالث، Workers می‌تواند به سرویس‌های Cloudflare دسترسی داشته باشد
+                        </p>
+                    </div>
+
+                    <h3 style="color: var(--text-primary); margin: 24px 0 16px;">💡 نتیجه عملی</h3>
+                    <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
+                        بنابراین، مکان IP شما هنگام مرور اینترنت به نوع سایت مقصد بستگی دارد:
+                    </p>
+                    <ul style="margin: 12px 0; padding-left: 20px; line-height: 1.8;">
+                        <li style="margin-bottom: 12px; color: var(--text-secondary);">👤 هنگام بازدید از<strong>سایت‌هایی که از Cloudflare CDN استفاده نمی‌کنند</strong> (مانند <b>یوتیوب، گوگل</b> و غیره)، مکان IP شما توسط «IP بهینه» تعیین می‌شود</li>
+                        <li style="color: var(--text-secondary);">🌐 هنگام بازدید از<strong>سایت‌های میزبانی شده توسط Cloudflare CDN</strong> (مانند <b>توییتر، ChatGPT</b> و غیره)، مکان IP شما توسط «ProxyIP/SOCKS5/HTTP» تعیین می‌شود</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- دکمه تغییر -->
+            <div class="toggle-switch">
+                <input type="checkbox" id="proxyIPSimpleMode" onchange="toggleProxyIPHelpMode()">
+                <label for="proxyIPSimpleMode">من تازه‌کار هستم، متوجه نمی‌شوم</label>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-close-modal" onclick="closeProxyIPHelpModal()"
+                style="margin-top: 20px;">بستن</button>
+        </div>
+    </div>
+
+    <!-- پاپ‌آپ راهنمای ECH -->
+    <div class="modal-overlay" id="echHelpModal" onclick="closeECHHelpModal(event)">
+        <div class="modal ech-help-modal" onclick="event.stopPropagation()">
+            <button type="button" class="modal-close" onclick="closeECHHelpModal()">×</button>
+
+            <!-- تب‌ها -->
+            <div class="ech-tabs">
+                <button class="ech-tab active" onclick="switchECHTab(0)">ECH چیست؟</button>
+                <button class="ech-tab" onclick="switchECHTab(1)">چگونه استفاده کنیم؟</button>
+                <button class="ech-tab" onclick="switchECHTab(2)">چگونه تأیید کنیم که ECH فعال شده؟</button>
+            </div>
+                </div>
+            </div>
+
+            <!-- حالت جزئیات -->
             <div id="proxyIPHelpDetail" style="display: block;">
                 <div class="api-docs">
                     <h2 class="section-title">🤔 چرا به حالت پروکسی نیاز داریم؟ PROXYIP چیست؟</h2>
@@ -6565,152 +6658,152 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             </div>
 
             <button type="button" class="btn btn-primary btn-close-modal" onclick="closeProxyIPHelpModal()"
-                style="margin-top: 20px;">关闭</button>
+                style="margin-top: 20px;">بستن</button>
         </div>
     </div>
 
-    <!-- ECH 帮助模态框 -->
+    <!-- پاپ‌آپ راهنمای ECH -->
     <div class="modal-overlay" id="echHelpModal" onclick="closeECHHelpModal(event)">
         <div class="modal ech-help-modal" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeECHHelpModal()">×</button>
 
-            <!-- 选项卡 -->
+            <!-- تب‌ها -->
             <div class="ech-tabs">
-                <button class="ech-tab active" onclick="switchECHTab(0)">什么是ECH？</button>
-                <button class="ech-tab" onclick="switchECHTab(1)">如何使用？</button>
-                <button class="ech-tab" onclick="switchECHTab(2)">如何确认 ECH 是否已经生效？</button>
+                <button class="ech-tab active" onclick="switchECHTab(0)">ECH چیست؟</button>
+                <button class="ech-tab" onclick="switchECHTab(1)">چگونه استفاده کنم؟</button>
+                <button class="ech-tab" onclick="switchECHTab(2)">چگونه تأیید کنم که ECH فعال شده؟</button>
             </div>
 
-            <!-- 选项卡内容 -->
+            <!-- محتوای تب‌ها -->
             <div class="ech-tab-content">
                 <div class="ech-tab-pane active" id="echTab0">
                     <div class="api-docs">
-                        <h2 class="section-title">🔐 什么是 ECH？</h2>
+                        <h2 class="section-title">🔐 ECH چیست؟</h2>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            <strong>ECH（Encrypted Client Hello，加密客户端问候）</strong> 是 TLS 的一项新特性，用来
-                            <strong>将原本会明文暴露的域名信息一起加密</strong>。
+                            <strong>ECH (Encrypted Client Hello، سلام کلاینت رمزنگاری شده)</strong> یک ویژگی جدید TLS است که برای
+                            <strong>رمزنگاری اطلاعات دامنه که در غیر این صورت به صورت متنی نمایش داده می‌شد استفاده می‌شود</strong>.
                         </p>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            如果你希望了解更完整、偏技术细节的说明，可以参考 Cloudflare 官方博客：<br>
+                            اگر می‌خواهید توضیحات کامل‌تر و فنی‌تر را بخوانید، می‌توانید به وبلاگ رسمی Cloudflare مراجعه کنید:<br>
                             👉 <a href="https://blog.cloudflare.com/zh-cn/announcing-encrypted-client-hello/"
                                 target="_blank" rel="noopener"
                                 style="color: var(--primary-color); text-decoration: none;">https://blog.cloudflare.com/zh-cn/announcing-encrypted-client-hello/</a>
                         </p>
 
-                        <h3 style="color: var(--text-primary); margin: 24px 0 16px;">📖 背景说明</h3>
+                        <h3 style="color: var(--text-primary); margin: 24px 0 16px;">📖 توضیحات پس‌زمینه</h3>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            当我们使用 <strong>WS + TLS</strong> 的节点进行代理时：
+                            هنگامی که از نودهای <strong>WS + TLS</strong> برای پروکسی استفاده می‌کنیم:
                         </p>
 
                         <ul style="margin: 12px 0 16px; padding-left: 20px; line-height: 1.8;">
-                            <li style="margin-bottom: 8px; color: var(--text-secondary);">✅ 实际通信内容已经被 TLS 加密，GFW
-                                <strong>无法看到你访问的具体内容</strong>
+                            <li style="margin-bottom: 8px; color: var(--text-secondary);">✅ محتوای واقعی ارتباط قبلاً با TLS رمزنگاری شده است، GFW
+                                <strong>نمی‌تواند محتوای خاصی که بازدید می‌کنید را ببیند</strong>
                             </li>
-                            <li style="color: var(--text-secondary);">❌ 但在 TLS 握手阶段，仍然会暴露一个关键信息：<strong>SNI</strong>
+                            <li style="color: var(--text-secondary);">❌ اما در مرحله handshake TLS، یک اطلاعات کلیدی هنوز نمایش داده می‌شود: <strong>SNI</strong>
                             </li>
                         </ul>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            <strong>SNI 就是节点的伪装域名（HOST）</strong>
+                            <strong>SNI دامنه جعلی نود (HOST) است</strong>
                         </p>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            也就是说：
+                            یعنی:
                         </p>
 
                         <div class="code-block"
                             style="background: #fff3cd; color: #856404; border-left-color: #ffc107;">
-                            GFW 虽然不知道你在访问什么，但知道你在"扶墙"，并且知道你连接的是哪个域名。
+                            GFW نمی‌داند چه چیزی را بازدید می‌کنید، اما می‌داند که در "فیلترشکن" هستید و می‌داند به کدام دامنه متصل می‌شوید.
                         </div>
 
-                        <h3 style="color: var(--text-primary); margin: 24px 0 16px;">⚠️ 会带来什么问题？</h3>
+                        <h3 style="color: var(--text-primary); margin: 24px 0 16px;">⚠️ چه مشکلاتی ایجاد می‌کند؟</h3>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            这就是为什么在以下场景中经常出现异常情况：
+                            به همین دلیل است که در سناریوهای زیر اغلب مشکلاتی رخ می‌دهد:
                         </p>
 
                         <ul style="margin: 12px 0 16px; padding-left: 20px; line-height: 1.8;">
-                            <li style="margin-bottom: 8px; color: var(--text-secondary);">❌ v2rayN 批量测试真链接延迟</li>
-                            <li style="color: var(--text-secondary);">❌ Clash 策略组自动选择节点</li>
+                            <li style="margin-bottom: 8px; color: var(--text-secondary);">❌ تست دسته‌ای لینک واقعی v2rayN</li>
+                            <li style="color: var(--text-secondary);">❌ انتخاب خودکار گروه‌های Clash</li>
                         </ul>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            表现通常为：
+                            معمولاً به این صورت است:
                         </p>
 
                         <div class="code-block"
                             style="background: #f8d7da; color: #721c24; border-left-color: #dc3545;">
-                            所有节点瞬间 -1，全部无法使用
+                            همه نودها فوراً -1 می‌شوند، همه قابل استفاده نیستند
                         </div>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            其原因并不是节点真的失效，而是 <strong>运营商 / GFW 通过阻断节点域名的访问来干扰代理连接</strong>。<br>
-                            由于这种阻断大多是自动化策略，容易误判，因此 <strong>过一段时间节点又可能恢复正常</strong>，反复循环。
+                            دلیلش این نیست که نودها واقعاً از کار افتاده‌اند، بلکه <strong>اپراتور / GFW با مسدود کردن دسترسی به دامنه نود ارتباط پروکسی را مختل می‌کند</strong>.<br>
+                            از آنجایی که این مسدودسازی اغلب خودکار است، به راحتی اشتباه می‌شود، بنابراین <strong>پس از مدتی نودها ممکن است دوباره کار کنند</strong>، این چرخه تکرار می‌شود.
                         </p>
 
-                        <h3 style="color: var(--text-primary); margin: 24px 0 16px;">💡 ECH 的作用</h3>
+                        <h3 style="color: var(--text-primary); margin: 24px 0 16px;">💡 نقش ECH</h3>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            ECH 的核心作用是：
+                            نقش اصلی ECH این است:
                         </p>
 
                         <div class="code-block"
                             style="background: #d1ecf1; color: #0c5460; border-left-color: #17a2b8;">
-                            将 SNI（也就是节点域名）加密
+                            رمزنگاری SNI (یعنی دامنه نود)
                         </div>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            启用 ECH 后：
+                            پس از فعال‌سازی ECH:
                         </p>
 
                         <ul style="margin: 12px 0 16px; padding-left: 20px; line-height: 1.8;">
                             <li style="margin-bottom: 8px; color: var(--text-secondary);">✅ GFW
-                                <strong>无法获取真实的节点域名</strong>
+                                <strong>نمی‌تواند دامنه واقعی نود را بدست آورد</strong>
                             </li>
-                            <li style="color: var(--text-secondary);">✅ 外部观察到的域名将统一显示为：<code
+                            <li style="color: var(--text-secondary);">✅ دامنه مشاهده شده به طور یکسان نمایش داده می‌شود: <code
                                     style="background: #e9ecef; padding: 2px 4px; border-radius: 3px;">cloudflare-ech.com</code>
                             </li>
                         </ul>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            这从源头上 <strong>阻断了通过域名精准封锁节点的手段</strong>。
+                            این از ریشه <strong>روش مسدود کردن دقیق نودها از طریق دامنه را مسدود می‌کند</strong>.
                         </p>
 
-                        <h3 style="color: var(--text-primary); margin: 24px 0 16px;">🤔 ECH 会不会被封？</h3>
+                        <h3 style="color: var(--text-primary); margin: 24px 0 16px;">🤔 آیا ECH مسدود می‌شود؟</h3>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            理论上，GFW 只需 <strong>直接阻断 <code>cloudflare-ech.com</code></strong> 即可。
+                            از نظر تئوری، GFW فقط باید <strong>مستقیماً <code>cloudflare-ech.com</code> را مسدود کند</strong>.
                         </p>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            但这样会：
+                            اما این کار:
                         </p>
 
                         <ul style="margin: 12px 0 16px; padding-left: 20px; line-height: 1.8;">
-                            <li style="margin-bottom: 8px; color: var(--text-secondary);">❌ 误伤大量正常使用 ECH 的网站和服务</li>
-                            <li style="color: var(--text-secondary);">❌ 带来较高的封锁成本和副作用</li>
+                            <li style="margin-bottom: 8px; color: var(--text-secondary);">❌ تعداد زیادی از وب‌سایت‌ها و سرویس‌های معمولی که از ECH استفاده می‌کنند را تحت تأثیر قرار می‌دهد</li>
+                            <li style="color: var(--text-secondary);">❌ هزینه مسدودسازی بالا و عوارض جانبی زیادی دارد</li>
                         </ul>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            因此，<strong>ECH 能持续多久，取决于 GFW 的取舍与策略</strong>，至少在目前阶段仍然非常有效。
+                            بنابراین، <strong>مدت زمان ماندگاری ECH به تصمیم و سیاست GFW بستگی دارد</strong>، حداقل در مرحله فعلی هنوز بسیار مؤثر است.
                         </p>
                     </div>
                 </div>
 
                 <div class="ech-tab-pane" id="echTab1">
                     <div class="api-docs">
-                        <h2 class="section-title">🚀 如何使用 ECH？</h2>
+                        <h2 class="section-title">🚀 چگونه از ECH استفاده کنیم؟</h2>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            使用 ECH 非常简单，只需要 <strong>ECH 设置</strong> 为 <strong>开启</strong> 后更新订阅即可。
+                            استفاده از ECH بسیار ساده است، فقط کافیست <strong>تنظیمات ECH</strong> را روی <strong>فعال</strong> تنظیم کنید و اشتراک را به‌روزرسانی کنید.
                         </p>
 
-                        <h3 style="color: var(--text-primary); margin: 24px 0 16px;">📱 支持 ECH 的客户端</h3>
+                        <h3 style="color: var(--text-primary); margin: 24px 0 16px;">📱 کلاینت‌های پشتیبانی‌کننده ECH</h3>
 
-                        <h4 style="color: var(--text-primary); margin: 20px 0 12px;">Windows：</h4>
+                        <h4 style="color: var(--text-primary); margin: 20px 0 12px;">ویندوز:</h4>
                         <ul style="margin: 12px 0 16px; padding-left: 20px; line-height: 1.8;">
                             <li style="margin-bottom: 8px; color: var(--text-secondary);">
                                 <strong>v2rayN ≥ v7.17.0</strong><br>
@@ -6719,7 +6812,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                             </li>
                         </ul>
 
-                        <h4 style="color: var(--text-primary); margin: 20px 0 12px;">Android：</h4>
+                        <h4 style="color: var(--text-primary); margin: 20px 0 12px;">اندروید:</h4>
                         <ul style="margin: 12px 0 16px; padding-left: 20px; line-height: 1.8;">
                             <li style="margin-bottom: 8px; color: var(--text-secondary);">
                                 <strong>v2rayNG ≥ v2.0.0</strong><br>
@@ -6728,87 +6821,87 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                             </li>
                         </ul>
 
-                        <h4 style="color: var(--text-primary); margin: 20px 0 12px;">Clash.Meta（mihomo 内核）：</h4>
+                        <h4 style="color: var(--text-primary); margin: 20px 0 12px;">Clash.Meta (هسته mihomo):</h4>
                         <ul style="margin: 12px 0 16px; padding-left: 20px; line-height: 1.8;">
                             <li style="margin-bottom: 8px; color: var(--text-secondary);">
-                                所有使用 <strong>clash.meta / mihomo 内核</strong> 的客户端均支持 ECH
+                                همه کلاینت‌هایی که از هسته <strong>clash.meta / mihomo</strong> استفاده می‌کنند از ECH پشتیبانی می‌کنند
                             </li>
                             <li style="color: var(--text-secondary);">
-                                ⚠️ <strong>需要 DNS 配合使用</strong>
+                                ⚠️ <strong>نیاز به همکاری DNS دارد</strong>
                             </li>
                         </ul>
 
-                        <h3 style="color: var(--text-primary); margin: 24px 0 16px;">⚠️ Clash 用户注意事项</h3>
+                        <h3 style="color: var(--text-primary); margin: 24px 0 16px;">⚠️ نکات کاربران Clash</h3>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            当前订阅配置中已 <strong>内置 ECH 所需的 DNS 设置</strong>。
+                            تنظیمات DNS مورد نیاز ECH از قبل در پیکربندی اشتراک تعبیه شده است.
                         </p>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            如果出现以下情况：
+                            اگر موارد زیر رخ دهد:
                         </p>
 
                         <ul style="margin: 12px 0 16px; padding-left: 20px; line-height: 1.8;">
-                            <li style="margin-bottom: 8px; color: var(--text-secondary);">✅ 已开启 ECH</li>
-                            <li style="margin-bottom: 8px; color: var(--text-secondary);">✅ 已更新订阅</li>
-                            <li style="color: var(--text-secondary);">❌ ECH 节点仍然无法使用</li>
+                            <li style="margin-bottom: 8px; color: var(--text-secondary);">✅ ECH روشن است</li>
+                            <li style="margin-bottom: 8px; color: var(--text-secondary);">✅ اشتراک به‌روزرسانی شده است</li>
+                            <li style="color: var(--text-secondary);">❌ گره‌های ECH هنوز قابل استفاده نیستند</li>
                         </ul>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            请检查：
+                            لطفاً بررسی کنید:
                         </p>
 
                         <div class="code-block"
                             style="background: #fff3cd; color: #856404; border-left-color: #ffc107;">
-                            是否在更新订阅时覆盖了原有的 DNS 配置
+                            آیا پیکربندی DNS اصلی را هنگام به‌روزرسانی اشتراک بازنویسی کرده‌اید؟
                         </div>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            建议：<strong>不要覆盖订阅中自带的 DNS 设置</strong>
+                            پیشنهاد: <strong>پیکربندی DNS پیش‌فرض اشتراک را بازنویسی نکنید</strong>
                         </p>
                     </div>
                 </div>
 
                 <div class="ech-tab-pane" id="echTab2">
                     <div class="api-docs">
-                        <h2 class="section-title">🔍 如何确认 ECH 是否已经生效？</h2>
+                        <h2 class="section-title">🔍 چگونه تأیید کنیم که ECH فعال شده است؟</h2>
 
                         <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                            可以通过一个 <strong>简单且直观的方法</strong> 来验证 ECH 是否正常工作。
+                            می‌توانید با یک <strong>روش ساده و مستقیم</strong> بررسی کنید که ECH درست کار می‌کند.
                         </p>
 
-                        <h3 style="color: var(--text-primary); margin: 24px 0 16px;">📋 验证步骤</h3>
+                        <h3 style="color: var(--text-primary); margin: 24px 0 16px;">📋 مراحل تأیید</h3>
 
                         <ol style="margin: 12px 0 16px; padding-left: 20px; line-height: 1.8;">
-                            <li style="margin-bottom: 12px; color: var(--text-secondary);">打开节点的 <strong>「⚙️
-                                    详细配置信息」</strong></li>
-                            <li style="margin-bottom: 12px; color: var(--text-secondary);">在 <strong>HOST</strong>
-                                中手动填写一个 <strong>已被墙的域名</strong>，例如： <code
+                            <li style="margin-bottom: 12px; color: var(--text-secondary);">تنظیمات <strong>«⚙️
+                                    جزئیات پیکربندی»</strong> گره را باز کنید</li>
+                            <li style="margin-bottom: 12px; color: var(--text-secondary);">در <strong>HOST</strong>
+                                به صورت دستی یک <strong>دامنه مسدود شده</strong> وارد کنید، مانند: <code
                                     style="background: #e9ecef; padding: 2px 4px; border-radius: 3px;">*.workers.dev</code>
                             </li>
-                            <li style="margin-bottom: 12px; color: var(--text-secondary);">保存配置后 <strong>重新更新订阅</strong>
+                            <li style="margin-bottom: 12px; color: var(--text-secondary);">پس از ذخیره پیکربندی، <strong>اشتراک را دوباره به‌روزرسانی کنید</strong>
                             </li>
-                            <li style="color: var(--text-secondary);">在节点列表中查找：
+                            <li style="color: var(--text-secondary);">در لیست گره‌ها جستجو کنید:
                                 <ul style="margin: 8px 0 0 20px; padding-left: 0;">
-                                    <li style="margin-bottom: 4px;">- HOST 为 <code
+                                    <li style="margin-bottom: 4px;">- گره با HOST <code
                                             style="background: #e9ecef; padding: 2px 4px; border-radius: 3px;">*.workers.dev</code>
-                                        的节点</li>
-                                    <li>- 并尝试连接该节点</li>
+                                    </li>
+                                    <li>- و سعی کنید به آن گره متصل شوید</li>
                                 </ul>
                             </li>
                         </ol>
 
-                        <h3 style="color: var(--text-primary); margin: 24px 0 16px;">✅ 如何判断结果？</h3>
+                        <h3 style="color: var(--text-primary); margin: 24px 0 16px;">✅ چگونه نتیجه را تشخیص دهیم؟</h3>
 
                         <ul style="margin: 12px 0 16px; padding-left: 20px; line-height: 1.8;">
                             <li style="margin-bottom: 12px; color: var(--text-secondary);">
-                                <strong style="color: #28a745;">✅ 如果节点可以正常连接使用</strong><br>
-                                说明 <strong>ECH 已成功生效</strong>，真实被墙的域名已被隐藏，对外仅显示为 <code
-                                    style="background: #e9ecef; padding: 2px 4px; border-radius: 3px;">cloudflare-ech.com</code>
+                                <strong style="color: #28a745;">✅ اگر گره به طور عادی متصل شود و قابل استفاده باشد</strong><br>
+                                یعنی <strong>ECH با موفقیت فعال شده</strong>، دامنه واقعی مسدود شده مخفی شده و فقط <code
+                                    style="background: #e9ecef; padding: 2px 4px; border-radius: 3px;">cloudflare-ech.com</code> نمایش داده می‌شود
                             </li>
                             <li style="color: var(--text-secondary);">
-                                <strong style="color: #dc3545;">❌ 如果节点无法连接</strong><br>
-                                说明 ECH 未生效，或客户端版本、DNS 配置存在问题
+                                <strong style="color: #dc3545;">❌ اگر گره نتواند متصل شود</strong><br>
+                                یعنی ECH فعال نشده یا نسخه کلاینت یا پیکربندی DNS مشکل دارد
                             </li>
                         </ul>
                     </div>
@@ -6816,55 +6909,55 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             </div>
 
             <button type="button" class="btn btn-primary btn-close-modal" onclick="closeECHHelpModal()"
-                style="margin-top: 20px;">关闭</button>
+                style="margin-top: 20px;">بستن</button>
         </div>
     </div>
 
-    <!-- HOSTS 编辑模态框 -->
+    <!-- مدال ویرایش HOSTS -->
     <div class="modal-overlay" id="hostsEditModal">
         <div class="modal hosts-edit-modal" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeHostsEditModal()">×</button>
-            <h2 class="hosts-edit-modal-title">✏️ 编辑节点 自定义域名 列表</h2>
+            <h2 class="hosts-edit-modal-title">✏️ ویرایش لیست دامنه‌های سفارشی گره</h2>
 
             <div class="hosts-edit-container">
-                <label class="hosts-edit-label">自定义域名列表:</label>
-                <textarea id="hostsEditTextarea" class="hosts-edit-textarea" placeholder="每行输入一个域名"></textarea>
+                <label class="hosts-edit-label">لیست دامنه‌های سفارشی:</label>
+                <textarea id="hostsEditTextarea" class="hosts-edit-textarea" placeholder="هر خط یک دامنه وارد کنید"></textarea>
             </div>
 
             <div class="hosts-edit-footer">
-                <div class="hosts-edit-hint">💡 一行一个节点域名，无需添加逗号</div>
+                <div class="hosts-edit-hint">💡 هر خط یک دامنه گره، نیازی به اضافه کردن کاما نیست</div>
                 <div class="hosts-edit-buttons">
-                    <button type="button" class="btn btn-hosts-cancel" onclick="closeHostsEditModal()">取消</button>
-                    <button type="button" class="btn btn-hosts-confirm" onclick="confirmHostsEdit()">确定</button>
+                    <button type="button" class="btn btn-hosts-cancel" onclick="closeHostsEditModal()">لغو</button>
+                    <button type="button" class="btn btn-hosts-confirm" onclick="confirmHostsEdit()">تأیید</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 路径模板配置弹窗 -->
+    <!-- پاپ‌آپ پیکربندی قالب مسیر -->
     <div class="modal-overlay" id="pathTemplateConfigModal" onclick="closePathTemplateConfigModal(event)">
         <div class="modal" onclick="event.stopPropagation()" style="max-width: 500px;">
             <button type="button" class="modal-close" onclick="closePathTemplateConfigModal()">×</button>
-            <h2 class="path-template-modal-title">⚙️ 路径模板配置</h2>
+            <h2 class="path-template-modal-title">⚙️ پیکربندی قالب مسیر</h2>
 
             <div class="path-template-hint"
                 style="font-size: 12px; color: #374151; margin-bottom: 16px; padding: 8px 12px; background-color: #f3f4f6; border-radius: 4px;">
-                💡 路径模板中必须存在路径占位符 <code
+                💡 قالب مسیر باید دارای placeholder مسیر <code
                     style="background-color: #d1d5db; padding: 2px 4px; border-radius: 2px; color: #1f2937; font-weight: 500;">{{IP:PORT}}</code>
-                才能适配路径反代
+                باشد تا با reverse proxy مسیر سازگار شود
             </div>
 
             <div class="form-group">
-                <label for="presetTemplateSelect">预设模板</label>
+                <label for="presetTemplateSelect">قالب از پیش تعیین شده</label>
                 <select id="presetTemplateSelect" onchange="onPresetTemplateChange()">
-                    <option value="custom">自定义</option>
+                    <option value="custom">سفارشی</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <div style="display: flex; align-items: center; gap: 4px;">
-                    <label for="proxyIPTemplateInput">PROXYIP路径</label>
-                    <div id="proxyIPTemplateError" style="display: none; font-size: 12px; color: #ef4444;">缺少占位符
+                    <label for="proxyIPTemplateInput">مسیر PROXYIP</label>
+                    <div id="proxyIPTemplateError" style="display: none; font-size: 12px; color: #ef4444;">placeholder موجود نیست
                         {{IP:PORT}}</div>
                 </div>
                 <div class="path-template-input-wrapper">
@@ -6877,8 +6970,8 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
             <div class="form-group">
                 <div style="display: flex; align-items: center; gap: 4px;">
-                    <label for="socks5StandardTemplateInput">SOCKS5标准路径</label>
-                    <div id="socks5StandardTemplateError" style="display: none; font-size: 12px; color: #ef4444;">缺少占位符
+                    <label for="socks5StandardTemplateInput">مسیر استاندارد SOCKS5</label>
+                    <div id="socks5StandardTemplateError" style="display: none; font-size: 12px; color: #ef4444;">placeholder موجود نیست
                         {{IP:PORT}}</div>
                 </div>
                 <div class="path-template-input-wrapper">
@@ -6891,8 +6984,8 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
             <div class="form-group">
                 <div style="display: flex; align-items: center; gap: 4px;">
-                    <label for="socks5GlobalTemplateInput">SOCKS5全局路径</label>
-                    <div id="socks5GlobalTemplateError" style="display: none; font-size: 12px; color: #ef4444;">缺少占位符
+                    <label for="socks5GlobalTemplateInput">مسیر کلی SOCKS5</label>
+                    <div id="socks5GlobalTemplateError" style="display: none; font-size: 12px; color: #ef4444;">placeholder موجود نیست
                         {{IP:PORT}}</div>
                 </div>
                 <div class="path-template-input-wrapper">
@@ -6905,8 +6998,8 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
             <div class="form-group">
                 <div style="display: flex; align-items: center; gap: 4px;">
-                    <label for="httpStandardTemplateInput">HTTP标准路径</label>
-                    <div id="httpStandardTemplateError" style="display: none; font-size: 12px; color: #ef4444;">缺少占位符
+                    <label for="httpStandardTemplateInput">مسیر استاندارد HTTP</label>
+                    <div id="httpStandardTemplateError" style="display: none; font-size: 12px; color: #ef4444;">placeholder موجود نیست
                         {{IP:PORT}}</div>
                 </div>
                 <div class="path-template-input-wrapper">
@@ -6919,8 +7012,8 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
             <div class="form-group">
                 <div style="display: flex; align-items: center; gap: 4px;">
-                    <label for="httpGlobalTemplateInput">HTTP全局路径</label>
-                    <div id="httpGlobalTemplateError" style="display: none; font-size: 12px; color: #ef4444;">缺少占位符
+                    <label for="httpGlobalTemplateInput">مسیر کلی HTTP</label>
+                    <div id="httpGlobalTemplateError" style="display: none; font-size: 12px; color: #ef4444;">placeholder موجود نیست
                         {{IP:PORT}}</div>
                 </div>
                 <div class="path-template-input-wrapper">
@@ -6934,16 +7027,16 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             <div class="path-template-buttons">
                 <button type="button" class="btn btn-primary" id="pathTemplateSaveBtn"
                     onclick="savePathTemplateConfig()" disabled>
-                    保存并应用
+                    ذخیره و اعمال
                 </button>
                 <button type="button" class="btn btn-secondary" onclick="closePathTemplateConfigModal()">
-                    关闭
+                    بستن
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- 获取更多 PROXYIP 弹窗 -->
+    <!-- پاپ‌آپ دریافت PROXYIP بیشتر -->
     <div class="modal-overlay" id="getMoreProxyIPModal">
         <div class="modal">
             <div class="modal-map-side">
@@ -6952,23 +7045,23 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             <div class="modal-content-side">
                 <button type="button" class="modal-close" onclick="closeGetMoreProxyIPModal(event)"
                     style="cursor: pointer;">×</button>
-                <h2 class="section-title" style="margin-bottom: 10px; text-align: center;">🗺️ 获取更多 PROXYIP</h2>
+                <h2 class="section-title" style="margin-bottom: 10px; text-align: center;">🗺️ دریافت PROXYIP بیشتر</h2>
                 <p style="text-align: center; color: #666; font-size: 13px; margin-bottom: 20px;">
-                    反代资源来自 Github、<a href="https://t.me/zip_cm_edu_kg" target="_blank" rel="noopener noreferrer">CM科技大学</a>频道 等开源社区。
+                    منابع پروکسی از Github، <a href="https://t.me/zip_cm_edu_kg" target="_blank" rel="noopener noreferrer">کانال CM</a> و غیره از جامعه متن‌باز.
                 </p>
                 <div class="proxy-list-container">
                     <div class="form-group">
-                        <label for="proxyIPDataRegionSelect">🏳️‍🌈 选择目标地区</label>
+                        <label for="proxyIPDataRegionSelect">🏳️‍🌈 انتخاب منطقه هدف</label>
                         <div class="input-wrapper">
                             <select id="proxyIPDataRegionSelect" onchange="onProxyIPDataRegionChange()"
                                 style="padding-left: 16px;">
-                                <option value="">加载中...</option>
+                                <option value="">در حال بارگذاری...</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group" id="proxyIPProxySelectGroup">
-                        <label for="proxyIPProxySelect">🌐 选择目标代理 (最多8个)</label>
+                        <label for="proxyIPProxySelect">🌐 انتخاب پروکسی هدف (حداکثر 8)</label>
                         <div class="input-wrapper">
                             <select id="proxyIPProxySelect" onchange="addSelectedProxyIP(); updateProxyMap('proxyip');"
                                 style="padding-left: 16px; font-family: 'Fira Code', monospace; font-size: 12px;">
@@ -6979,7 +7072,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
                     <div id="selectedProxyIPsContainer" class="selected-proxies-tags"
                         style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; min-height: 40px; padding: 10px; border: 1px dashed #e5e7eb; border-radius: 8px;">
-                        <!-- 已选 IP 标签将显示在这里 -->
+                        <!-- برچسب‌های IP انتخابی اینجا نمایش داده می‌شوند -->
                     </div>
                 </div>
 
@@ -6987,17 +7080,17 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                     style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: auto; padding-top: 20px;">
                     <button type="button" class="btn btn-primary" id="proxyIPConfirmBtn"
                         onclick="confirmSelectProxyIP()" disabled>
-                        确定
+                        تأیید
                     </button>
                     <button type="button" class="btn btn-secondary" onclick="closeGetMoreProxyIPModal(event)">
-                        取消
+                        لغو
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 探索SOCKS5弹窗 -->
+    <!-- پاپ‌آپ کاوش SOCKS5 -->
     <div class="modal-overlay" id="exploreSocks5Modal">
         <div class="modal">
             <div class="modal-map-side">
@@ -7006,24 +7099,24 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             <div class="modal-content-side">
                 <button type="button" class="modal-close" onclick="closeExploreSocks5Modal(event)"
                     style="cursor: pointer;">×</button>
-                <h2 class="section-title" style="margin-bottom: 10px; text-align: center;">🔒 获取更多 SOCKS5</h2>
+                <h2 class="section-title" style="margin-bottom: 10px; text-align: center;">🔒 دریافت SOCKS5 بیشتر</h2>
                 <p style="text-align: center; color: #666; font-size: 13px; margin-bottom: 20px;">
-                    代理资源来自 Github、<a href="https://t.me/Enkelte_notif" target="_blank" rel="noopener noreferrer">Notif
-                        💬</a>频道、OTC大佬 等开源社区。
+                    منابع پروکسی از Github، <a href="https://t.me/Enkelte_notif" target="_blank" rel="noopener noreferrer">کانال
+                        💬 Notif</a>، OTC و غیره از جامعه متن‌باز.
                 </p>
                 <div class="socks5-list-container">
                     <div class="form-group">
-                        <label for="socks5RegionSelect">🏳️‍🌈 选择目标地区</label>
+                        <label for="socks5RegionSelect">🏳️‍🌈 انتخاب منطقه هدف</label>
                         <div class="input-wrapper">
                             <select id="socks5RegionSelect" onchange="onSocks5RegionChange()"
                                 style="padding-left: 16px;">
-                                <option value="">加载中...</option>
+                                <option value="">در حال بارگذاری...</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group" id="socks5ProxySelectGroup">
-                        <label for="socks5ProxySelect">🌐 选择目标代理</label>
+                        <label for="socks5ProxySelect">🌐 انتخاب پروکسی هدف</label>
                         <div class="input-wrapper">
                             <select id="socks5ProxySelect"
                                 onchange="updateSocks5ConfirmButton(); updateProxyMap('socks5');"
@@ -7037,17 +7130,17 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 <div class="btn-group"
                     style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: auto; padding-top: 20px;">
                     <button type="button" class="btn btn-primary" id="socks5ConfirmBtn" onclick="confirmSelectSocks5()">
-                        确定
+                        تأیید
                     </button>
                     <button type="button" class="btn btn-secondary" onclick="closeExploreSocks5Modal(event)">
-                        取消
+                        لغو
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 探索HTTP弹窗 -->
+    <!-- پاپ‌آپ کاوش HTTP -->
     <div class="modal-overlay" id="exploreHTTPModal">
         <div class="modal">
             <div class="modal-map-side">
@@ -7056,23 +7149,23 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             <div class="modal-content-side">
                 <button type="button" class="modal-close" onclick="closeExploreHTTPModal(event)"
                     style="cursor: pointer;">×</button>
-                <h2 class="section-title" style="margin-bottom: 10px; text-align: center;">🌐 获取更多 HTTP</h2>
+                <h2 class="section-title" style="margin-bottom: 10px; text-align: center;">🌐 دریافت HTTP بیشتر</h2>
                 <p style="text-align: center; color: #666; font-size: 13px; margin-bottom: 20px;">
-                    代理资源来自 Github、<a href="https://t.me/Enkelte_notif" target="_blank" rel="noopener noreferrer">Notif
-                        💬</a>频道、OTC大佬 等开源社区。
+                    منابع پروکسی از Github، <a href="https://t.me/Enkelte_notif" target="_blank" rel="noopener noreferrer">کانال
+                        💬 Notif</a>، OTC و غیره از جامعه متن‌باز.
                 </p>
                 <div class="http-list-container">
                     <div class="form-group">
-                        <label for="httpRegionSelect">🏳️‍🌈 选择目标地区</label>
+                        <label for="httpRegionSelect">🏳️‍🌈 انتخاب منطقه هدف</label>
                         <div class="input-wrapper">
                             <select id="httpRegionSelect" onchange="onHTTPRegionChange()" style="padding-left: 16px;">
-                                <option value="">加载中...</option>
+                                <option value="">در حال بارگذاری...</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group" id="httpProxySelectGroup">
-                        <label for="httpProxySelect">🌐 选择目标代理</label>
+                        <label for="httpProxySelect">🌐 انتخاب پروکسی هدف</label>
                         <div class="input-wrapper">
                             <select id="httpProxySelect" onchange="updateHTTPConfirmButton(); updateProxyMap('http');"
                                 style="padding-left: 16px; font-family: 'Fira Code', monospace; font-size: 12px;">
@@ -7086,43 +7179,43 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                     style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: auto; padding-top: 20px;">
                     <button type="button" class="btn btn-primary" id="httpConfirmBtn" onclick="confirmSelectHTTP()"
                         disabled>
-                        确定
+                        تأیید
                     </button>
                     <button type="button" class="btn btn-secondary" onclick="closeExploreHTTPModal(event)">
-                        取消
+                        لغو
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- HOSTS 检查提示弹窗 -->
+    <!-- پاپ‌آپ راهنمای بررسی HOSTS -->
     <div class="modal-overlay" id="hostsMismatchModal" onclick="closeHostsMismatchModal(event)">
         <div class="modal" onclick="event.stopPropagation()" style="max-width: 500px;">
             <button type="button" class="modal-close" onclick="closeHostsMismatchModal()">×</button>
             <div style="text-align: center; padding: 20px 0;">
-                <h2 style="color: #f44336; margin: 0 0 16px 0; font-size: 22px; font-weight: 700;">⚠️ 域名配置提示</h2>
+                <h2 style="color: #f44336; margin: 0 0 16px 0; font-size: 22px; font-weight: 700;">⚠️ راهنمای پیکربندی دامنه</h2>
                 <p style="margin: 0 0 12px 0; font-size: 14px; line-height: 1.6; text-align: left;">
-                    您当前访问管理面板使用的域名是：<strong id="currentHostname" style="color: #2196F3;"></strong>
+                    دامنه‌ای که برای دسترسی به پنل مدیریت استفاده می‌کنید: <strong id="currentHostname" style="color: #2196F3;"></strong>
                 </p>
                 <p style="margin: 0 0 12px 0; font-size: 14px; line-height: 1.6; text-align: left; color: #f44336;">
-                    <strong>⚠️ 注意：</strong>该域名 <strong>未配置为节点伪装域名</strong>。这意味着生成的订阅配置将 <strong>不会使用当前域名</strong> 作为
-                    <strong>节点域名</strong>。
+                    <strong>⚠️ توجه:</strong> این دامنه به عنوان <strong>دامنه استتار گره</strong> پیکربندی نشده است. این به این معناست که پیکربندی اشتراک تولید شده <strong>از این دامنه استفاده نخواهد کرد</strong> به عنوان
+                    <strong>دامنه گره</strong>.
                 </p>
                 <p style="margin: 0 0 12px 0; font-size: 14px; line-height: 1.6; text-align: left;">
-                    <strong>当前配置的节点伪装域名：</strong>
+                    <strong>دامنه‌های استتار گره پیکربندی شده فعلی:</strong>
                 </p>
                 <div id="currentHosts"
                     style="margin: 0 0 16px 0; padding: 12px; background-color: transparent; border-radius: 0; text-align: left; font-size: 13px; max-height: 120px; overflow-y: auto; word-break: break-all; display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start;">
                 </div>
                 <p style="margin: 0 0 16px 0; font-size: 13px; line-height: 1.6; text-align: left;">
-                    <strong>如何修改？</strong>请在高手模式下的"⚙️ 详细配置信息"，在"HOST"里添加您的域名"<strong id="hostToAdd"
-                        style="color: #2196F3;"></strong>"，保存配置后即可生效。
+                    <strong>چگونه تغییر دهیم؟</strong>لطفاً در حالت پیشرفته در "⚙️ جزئیات پیکربندی"، دامنه خود را به "HOST" اضافه کنید "<strong id="hostToAdd"
+                        style="color: #2196F3;"></strong>"، پس از ذخیره پیکربندی فعال می‌شود.
                 </p>
             </div>
             <div style="display: flex; gap: 12px; justify-content: center;">
                 <button type="button" class="btn btn-hosts-warning" onclick="dismissHostsMismatchNotification()"
-                    style="flex: 1; background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%); color: #fff; border: none; padding: 12px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3); transition: all 0.3s ease;">我知道了！24小时内不再提示！</button>
+                    style="flex: 1; background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%); color: #fff; border: none; padding: 12px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3); transition: all 0.3s ease;">فهمیدم! 24 ساعت دیگر یادآوری نکن!</button>
             </div>
         </div>
     </div>
@@ -7461,7 +7554,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             applyTheme(isDark ? 'light' : 'dark');
         }
 
-        // 返回顶部
+        // بازگشت به بالا
         function scrollToTop() {
             const pageWrapper = document.querySelector('.page-wrapper');
             if (pageWrapper) {
@@ -7847,7 +7940,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                     textarea.value = '';
                 }
             } catch (error) {
-                showToast('加载自定义IP失败', 'error');
+                showToast('بارگذاری IP سفارشی ناموفق بود', 'error');
                 textarea.value = '';
             } finally {
                 textarea.disabled = false;
@@ -8188,7 +8281,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 const dnsRegion = selectedDNSOption.dataset.region;
 
                 if (dnsRegion === 'domestic') {
-                    alert('⚠️ ECH 配置提示\n\n默认使用节点HOST伪装域名 配合 国内 DNS 可能导致 ECH 解析失败。\n\n解决方案（任选其一）：\n① 将 ECH 解析域名改为 cloudflare-ech.com（推荐）\n② 将 ECH DNS 切换为国际服务（如 NextDNS）');
+                    alert('⚠️ راهنمای پیکربندی ECH\n\nبه طور پیش‌فرض از HOST نود به عنوان دامنه جعلی استفاده می‌شود. استفاده از DNS داخلی ممکن است باعث شکست تجزیه ECH شود.\n\nراه‌حل (یکی را انتخاب کنید):\n① تغییر دامنه تجزیه ECH به cloudflare-ech.com (پیشنهادی)\n② تغییر DNS ECH به سرویس بین‌المللی (مانند NextDNS)');
                     select.value = 'cloudflare-ech.com';
                 }
             } else if (select.value === 'custom') {
@@ -8630,9 +8723,9 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
         function copySubscription(elementId) {
             const element = document.getElementById(elementId);
             navigator.clipboard.writeText(element.value).then(() => {
-                showToast('已复制到剪贴板', 'success');
+                showToast('کپی شد', 'success');
             }).catch(() => {
-                showToast('复制失败', 'error');
+                showToast('کپی ناموفق بود', 'error');
             });
         }
 
@@ -8678,7 +8771,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             } catch (error) {
                 // 如果文本过长，显示错误提示
                 console.error('二维码生成失败:', error);
-                showToast('链接过长，无法生成二维码。联系项目作者修复问题。', 'error');
+                showToast('لینک خیلی بلند است، امکان تولید QR code وجود ندارد. با نویسنده پروژه تماس بگیرید.', 'error');
                 container.innerHTML = '<div style="padding:20px;text-align:center;color:#f44336;">二维码生成失败：内容过长</div>';
             }
         }
@@ -8746,7 +8839,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 .filter(item => item.length > 0);
 
             if (items.length === 0) {
-                showToast('请至少输入一个域名', 'error');
+                showToast('لطفا حداقل یک دامنه وارد کنید', 'error');
                 return;
             }
 
@@ -8762,7 +8855,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             // 标记配置已修改
             markModified('config');
 
-            showToast('域名列表已更新，请保存配置', 'success');
+            showToast('لیست دامنه‌ها به‌روز شد، لطفا پیکربندی را ذخیره کنید', 'success');
         }
 
         // 清理域名格式：去掉协议、路径、端口号，只保留纯域名
@@ -8793,19 +8886,19 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             if (mode === 'random') {
                 const randomCount = document.getElementById('randomCount').value.trim();
                 if (!randomCount) {
-                    showToast('随机优选数量不能为空', 'error');
+                    showToast('تعداد بهینه‌سازی تصادفی نمی‌تواند خالی باشد', 'error');
                     return;
                 }
             } else if (mode === 'custom') {
                 const customIPs = document.getElementById('customIPs').value.trim();
                 if (!customIPs) {
-                    showToast('自定义优选地址不能为空', 'error');
+                    showToast('آدرس بهینه‌سازی سفارشی نمی‌تواند خالی باشد', 'error');
                     return;
                 }
             } else if (mode === 'generator') {
                 const generatorURL = document.getElementById('generatorURL').value.trim();
                 if (!generatorURL) {
-                    showToast('优选订阅生成器地址不能为空', 'error');
+                    showToast('آدرس تولیدکننده اشتراک بهینه نمی‌تواند خالی باشد', 'error');
                     return;
                 }
             }
@@ -8831,7 +8924,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 try {
                     await fetch('/admin/ADD.txt', { method: 'POST', body: customIPs });
                 } catch (error) {
-                    showToast('保存自定义IP失败', 'error');
+                    showToast('ذخیره IP سفارشی ناموفق بود', 'error');
                     return;
                 }
             }
@@ -8921,7 +9014,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 proxyIP = autoProxy ? 'auto' : document.getElementById('proxyIP').value.trim();
 
                 if (!autoProxy && !proxyIP) {
-                    showToast('PROXYIP地址不能为空', 'error');
+                    showToast('آدرس PROXYIP نمی‌تواند خالی باشد', 'error');
                     return;
                 }
             } else if (mode === 'socks5') {
@@ -8930,7 +9023,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 globalProxy = document.getElementById('globalSocks5').checked;
 
                 if (!socksAccount) {
-                    showToast('SOCKS5地址不能为空', 'error');
+                    showToast('آدرس SOCKS5 نمی‌تواند خالی باشد', 'error');
                     return;
                 }
             } else if (mode === 'http') {
@@ -8939,7 +9032,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 globalProxy = document.getElementById('globalHTTP').checked;
 
                 if (!socksAccount) {
-                    showToast('HTTP地址不能为空', 'error');
+                    showToast('آدرس HTTP نمی‌تواند خالی باشد', 'error');
                     return;
                 }
             }
@@ -9075,11 +9168,11 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 });
 
                 if (!response.ok) throw new Error('保存失败');
-                showToast('✅ 配置已保存，请更新订阅，才能获取最新节点内容！', 'success');
+                showToast('✅ پیکربندی ذخیره شد، لطفا اشتراک را به‌روز کنید تا آخرین محتوای نود را دریافت کنید!', 'success');
                 modifiedSections.delete(section);
                 updateButtonStates();
             } catch (error) {
-                showToast('😢 ' + error.message + '，请检测网络环境，或关闭代理后再试！', 'error');
+                showToast('😢 ' + error.message + '، لطفا شبکه را بررسی کنید یا پروکسی را خاموش کرده و دوباره تلاش کنید!', 'error');
             }
         }
 
@@ -9252,7 +9345,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
         async function refreshConfig() {
             await loadConfig();
             const loadTime = currentConfig.加载时间 || '未知';
-            showToast(`配置已刷新 (加载时间: ${loadTime})`, 'success');
+            showToast(`پیکربندی به‌روز شد (زمان بارگذاری: ${loadTime})`, 'success');
         }
 
         function resetConfigWithConfirm() {
@@ -9270,14 +9363,14 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 if (!response.ok) throw new Error('重置失败');
 
                 closeResetModal();
-                showToast('配置已重置为默认值', 'success');
+                showToast('پیکربندی به مقادیر پیش‌فرض بازگردانده شد', 'success');
 
                 // 延迟1秒后刷新页面，让用户看到成功提示
                 setTimeout(() => {
                     window.location.reload();
                 }, 1000);
             } catch (error) {
-                showToast('重置失败: ' + error.message, 'error');
+                showToast('بازنشانی ناموفق بود: ' + error.message, 'error');
             }
         }
 
@@ -9293,15 +9386,15 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             if (cardContainer.classList.contains('simple-mode')) {
                 // 切换到高手模式
                 cardContainer.classList.remove('simple-mode');
-                btn.textContent = '🐣 我是小白！我想简单点！';
+                btn.textContent = '🐣 من مبتدی هستم! می‌خواهم ساده باشد!';
                 localStorage.setItem('userMode', 'expert');
-                showToast('🚀 已切换到高手模式，显示所有功能', 'success');
+                showToast('🚀 به حالت حرفه‌ای سوئیچ شد، همه ویژگی‌ها نمایش داده می‌شوند', 'success');
             } else {
                 // 切换到小白模式
                 cardContainer.classList.add('simple-mode');
-                btn.textContent = '🚀 我是高手！我就要折腾！';
+                btn.textContent = '🚀 من حرفه‌ای هستم! می‌خواهم تغییر دهم!';
                 localStorage.setItem('userMode', 'simple');
-                showToast('🐣 已切换到小白模式，只显示常用功能', 'success');
+                showToast('🐣 به حالت مبتدی سوئیچ شد، فقط ویژگی‌های رایج نمایش داده می‌شوند', 'success');
             }
 
             // 使用 requestAnimationFrame 确保动画流畅
@@ -9318,10 +9411,10 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
             if (userMode === 'simple') {
                 cardContainer.classList.add('simple-mode');
-                btn.textContent = '🚀 我是高手！我就要折腾！';
+                btn.textContent = '🚀 من حرفه‌ای هستم! می‌خواهم تغییر دهم!';
             } else {
                 cardContainer.classList.remove('simple-mode');
-                btn.textContent = '🐣 我是小白！我想简单点！';
+                btn.textContent = '🐣 من مبتدی هستم! می‌خواهم ساده باشد!';
             }
         }
 
@@ -9488,7 +9581,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 container.innerHTML = html;
                 document.getElementById('logsModal').classList.add('show');
             } catch (error) {
-                showToast('加载日志失败: ' + error.message, 'error');
+                showToast('بارگذاری گزارش‌ها ناموفق بود: ' + error.message, 'error');
             }
         }
 
@@ -9760,7 +9853,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 // 显示详情弹窗
                 showIpDetailModal(data);
             } catch (error) {
-                showToast('❌ 查询IP详细信息失败');
+                showToast('❌ دریافت جزئیات IP ناموفق بود');
                 console.error('IP查询错误:', error);
             } finally {
                 if (targetElement) {
@@ -9804,7 +9897,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
         async function loadSubAPIList(currentValue) {
             const selectEl = document.getElementById('subAPISelect');
-            selectEl.innerHTML = '<option value="">-- 加载中，请稍候 --</option>';
+            selectEl.innerHTML = '<option value="">-- در حال بارگذاری، لطفا صبر کنید --</option>';
 
             try {
                 const jsonText = await fetchWithAutoMirror(
@@ -9952,7 +10045,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 });
             } catch (error) {
                 console.error('加载路径模板预设失败:', error);
-                showToast('加载预设模板失败: ' + error.message, 'error');
+                showToast('بارگذاری قالب پیش‌فرض ناموفق بود: ' + error.message, 'error');
             }
         }
 
@@ -10052,7 +10145,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 if (templates.length > 0) {
                     const hasPlaceholder = templates.every(t => t.includes('{{IP:PORT}}'));
                     if (!hasPlaceholder) {
-                        showToast('当前路径模板存在缺失 {{IP:PORT}} 占位符', 'error');
+                        showToast('قالب مسیر فعلی دارای کمبود {{IP:PORT}} است', 'error');
                         //return;
                     }
                 }
@@ -10082,7 +10175,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 closePathTemplateConfigModal();
             } catch (error) {
                 console.error('保存路径模板失败:', error);
-                showToast('保存路径模板失败: ' + error.message, 'error');
+                showToast('ذخیره قالب مسیر ناموفق بود: ' + error.message, 'error');
             }
         }
 
@@ -10451,7 +10544,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
         // 清除 Telegram 配置
         async function clearTelegramConfig() {
-            if (confirm('确定要清除 Telegram 配置吗？')) {
+            if (confirm('آیا مطمئن هستید که می‌خواهید پیکربندی Telegram را پاک کنید؟')) {
                 currentConfig.TG = {
                     BotToken: null,
                     ChatID: null,
@@ -10460,13 +10553,13 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
                 try {
                     await saveConfigToServer('notification');
-                    showToast('Telegram 配置已清除', 'success');
+                    showToast('پیکربندی Telegram پاک شد', 'success');
                     updateTelegramButtonStates(false);
                     const telegramCheckbox = document.getElementById('telegramEnabled');
                     telegramCheckbox.disabled = true;
                     telegramCheckbox.checked = false;
                 } catch (error) {
-                    showToast('清除配置失败: ' + error.message, 'error');
+                    showToast('پاک کردن پیکربندی ناموفق بود: ' + error.message, 'error');
                 }
             }
         }
@@ -10496,7 +10589,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
         // 清除 Cloudflare 配置
         async function clearCloudflareConfig() {
-            if (confirm('确定要清除 Cloudflare 配置吗？')) {
+            if (confirm('آیا مطمئن هستید که می‌خواهید پیکربندی Cloudflare را پاک کنید؟')) {
                 currentConfig.CF = {
                     Usage: null,
                     启用: false
@@ -10504,10 +10597,10 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
                 try {
                     await saveConfigToServer('notification');
-                    showToast('Cloudflare 配置已清除', 'success');
+                    showToast('پیکربندی Cloudflare پاک شد', 'success');
                     updateCloudflareButtonStates(false);
                 } catch (error) {
-                    showToast('清除配置失败: ' + error.message, 'error');
+                    showToast('پاک کردن پیکربندی ناموفق بود: ' + error.message, 'error');
                 }
             }
         }
@@ -10615,12 +10708,12 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
             // 检查按钮是否禁用（必须先通过验证）
             if (confirmBtn.disabled) {
-                showToast('请先点击"可用性验证"按钮验证配置', 'error');
+                showToast('لطفا ابتدا روی دکمه "تایید دسترس‌پذیری" کلیک کنید', 'error');
                 return;
             }
 
             if (!token || !chatID) {
-                showToast('请填写完整的Bot Token和Chat ID', 'error');
+                showToast('لطفا Token Bot و Chat ID کامل را وارد کنید', 'error');
                 return;
             }
 
@@ -10642,7 +10735,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
                 if (response.ok) {
                     const result = await response.json();
-                    showToast('✅ TelegramBot 配置已保存', 'success');
+                    showToast('✅ پیکربندی TelegramBot ذخیره شد', 'success');
                     closeTelegramConfigModal();
 
                     // 更新按钮状态
@@ -10659,14 +10752,14 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                     }, 1000);
                 } else {
                     const errorData = await response.json();
-                    showToast('❌ 保存失败: ' + (errorData.error || '未知错误'), 'error');
+                    showToast('❌ ذخیره ناموفق بود: ' + (errorData.error || 'خطای ناشناخته'), 'error');
                     confirmBtn.disabled = false;
-                    confirmBtn.textContent = '保存';
+                    confirmBtn.textContent = 'ذخیره';
                 }
             } catch (error) {
-                showToast('❌ 保存失败: ' + error.message, 'error');
+                showToast('❌ ذخیره ناموفق بود: ' + error.message, 'error');
                 confirmBtn.disabled = false;
-                confirmBtn.textContent = '保存';
+                confirmBtn.textContent = 'ذخیره';
             }
         }
 
@@ -10861,7 +10954,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
             // 检查是否通过了验证
             if (confirmBtn.dataset.testPassed !== 'true') {
-                showToast('请先点击"可用性验证"按钮通过验证', 'error');
+                showToast('لطفا ابتدا روی دکمه "تایید دسترس‌پذیری" کلیک کنید', 'error');
                 return;
             }
 
@@ -10906,7 +10999,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 });
 
                 if (response.ok) {
-                    showToast('✅ Cloudflare 配置已保存', 'success');
+                    showToast('✅ پیکربندی Cloudflare ذخیره شد', 'success');
                     closeCloudflareConfigModal();
 
                     // 1秒后刷新页面
@@ -10915,14 +11008,14 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                     }, 1000);
                 } else {
                     const errorData = await response.json();
-                    showToast('❌ 保存失败: ' + (errorData.error || '未知错误'), 'error');
+                    showToast('❌ ذخیره ناموفق بود: ' + (errorData.error || 'خطای ناشناخته'), 'error');
                     confirmBtn.disabled = false;
-                    confirmBtn.textContent = '保存';
+                    confirmBtn.textContent = 'ذخیره';
                 }
             } catch (error) {
-                showToast('❌ 保存失败: ' + error.message, 'error');
+                showToast('❌ ذخیره ناموفق بود: ' + error.message, 'error');
                 confirmBtn.disabled = false;
-                confirmBtn.textContent = '保存';
+                confirmBtn.textContent = 'ذخیره';
             }
         }
 
@@ -10940,13 +11033,13 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                     body: JSON.stringify(currentConfig)
                 });
 
-                if (!response.ok) throw new Error('保存失败');
+                if (!response.ok) throw new Error('ذخیره ناموفق بود');
 
-                showToast('✅ 启用状态已保存', 'success');
+                showToast('✅ وضعیت فعال‌سازی ذخیره شد', 'success');
                 modifiedSections.delete('notification');
                 updateButtonStates();
             } catch (error) {
-                showToast('❌ 保存失败: ' + error.message, 'error');
+                showToast('❌ ذخیره ناموفق بود: ' + error.message, 'error');
             }
         }
 
@@ -10974,15 +11067,15 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
                 if (response.ok && data.success) {
                     closeClearTelegramModal();
-                    showToast('✅ Telegram 配置已清除，页面即将刷新...', 'success');
+                    showToast('✅ پیکربندی Telegram پاک شد، صفحه به‌زودی رفرش می‌شود...', 'success');
                     setTimeout(() => {
                         location.reload();
                     }, 1000);
                 } else {
-                    showToast('❌ 清除失败: ' + (data.message || '未知错误'), 'error');
+                    showToast('❌ پاک کردن ناموفق بود: ' + (data.message || 'خطای ناشناخته'), 'error');
                 }
             } catch (error) {
-                showToast('❌ 清除出错: ' + error.message, 'error');
+                showToast('❌ پاک کردن دچار خطا شد: ' + error.message, 'error');
             }
         }
 
@@ -11009,15 +11102,15 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
                 if (response.ok && data.success) {
                     closeClearCloudflareModal();
-                    showToast('✅ Cloudflare 配置已清除，页面即将刷新...', 'success');
+                    showToast('✅ پیکربندی Cloudflare پاک شد، صفحه به‌زودی رفرش می‌شود...', 'success');
                     setTimeout(() => {
                         location.reload();
                     }, 1000);
                 } else {
-                    showToast('❌ 清除失败: ' + (data.message || '未知错误'), 'error');
+                    showToast('❌ پاک کردن ناموفق بود: ' + (data.message || 'خطای ناشناخته'), 'error');
                 }
             } catch (error) {
-                showToast('❌ 清除出错: ' + error.message, 'error');
+                showToast('❌ پاک کردن دچار خطا شد: ' + error.message, 'error');
             }
         }
 
@@ -11297,7 +11390,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             const portInput = document.getElementById('apiOptimizePort').value.trim();
 
             if (!urlInput) {
-                alert('请输入API URL');
+                alert('لطفا URL API را وارد کنید');
                 return;
             }
 
@@ -11306,11 +11399,11 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             if (convertedURL !== urlInput) {
                 document.getElementById('apiOptimizeURL').value = convertedURL;
                 urlInput = convertedURL;
-                showToast('✅ GitHub链接已自动转换为raw格式', 'info');
+                showToast('✅ لینک GitHub به طور خودکار به فرمت raw تبدیل شد', 'info');
             }
 
             if (!isValidURL(urlInput)) {
-                alert('请输入有效的URL格式');
+                alert('لطفا یک URL معتبر وارد کنید');
                 return;
             }
 
@@ -11336,7 +11429,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                     // 更新端口输入框
                     document.getElementById('apiOptimizePort').value = detectedPort;
 
-                    showToast(`✅ 已自动识别URL中的端口号: ${detectedPort}，并已移除port参数`, 'success');
+                                        showToast(`✅ شماره پورت در URL شناسایی شد: ${detectedPort} و پارامتر port حذف شد`, 'success');
                 }
             } catch (error) {
                 console.log('URL port参数提取失败:', error);
@@ -11375,10 +11468,10 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                     }
                     document.getElementById('btnAppendAPI').disabled = false;
                     document.getElementById('btnAppendResults').disabled = false;
-                    showToast('✅ API接口验证成功！', 'success');
+                    showToast('✅ تایید API موفقیت‌آمیز بود!', 'success');
                 } else {
                     // 接口不可用
-                    document.getElementById('apiOptimizeResults').value = '❌ 接口不可用，请检查URL和端口是否正确';
+                    document.getElementById('apiOptimizeResults').value = '❌ رابط در دسترس نیست، لطفا URL و پورت را بررسی کنید';
                     // 刷新line-editor行数
                     const resultsTA = document.getElementById('apiOptimizeResults');
                     if (resultsTA._refreshLineEditor) {
@@ -11386,11 +11479,11 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                     }
                     document.getElementById('btnAppendAPI').disabled = true;
                     document.getElementById('btnAppendResults').disabled = true;
-                    showToast('❌ API接口验证失败，请检查接口', 'error');
+                    showToast('❌ تایید API ناموفق بود، لطفا رابط را بررسی کنید', 'error');
                 }
             } catch (error) {
                 console.error('API验证错误:', error);
-                document.getElementById('apiOptimizeResults').value = `❌ 验证出错: ${error.message}`;
+                document.getElementById('apiOptimizeResults').value = `❌ خطا در تایید: ${error.message}`;
                 // 刷新line-editor行数
                 const resultsTA = document.getElementById('apiOptimizeResults');
                 if (resultsTA._refreshLineEditor) {
@@ -11398,7 +11491,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 }
                 document.getElementById('btnAppendAPI').disabled = true;
                 document.getElementById('btnAppendResults').disabled = true;
-                showToast('❌ 验证出错，请稍后重试', 'error');
+                showToast('❌ خطا در تایید، لطفا بعدا دوباره تلاش کنید', 'error');
             } finally {
                 const btn = document.getElementById('btnVerifyAPI');
                 btn.disabled = false;
@@ -11412,7 +11505,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             const portInput = document.getElementById('apiOptimizePort').value.trim();
 
             if (!urlInput) {
-                alert('请输入API URL');
+                alert('لطفا URL API را وارد کنید');
                 return;
             }
 
@@ -11447,7 +11540,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             // 标记为已修改
             markModified('sub');
 
-            showToast('✅ API URL已追加到自定义优选地址', 'success');
+            showToast('✅ URL API به آدرس بهینه‌سازی سفارشی اضافه شد', 'success');
             closeAPIOptimizeModal();
         }
 
@@ -11457,7 +11550,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             const results = resultsTextarea.value.trim();
 
             if (!results || results.startsWith('❌')) {
-                alert('请先进行可用性验证且验证通过');
+                alert('لطفا ابتدا تایید دسترس‌پذیری را انجام دهید');
                 return;
             }
 
@@ -11479,7 +11572,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             // 标记为已修改
             markModified('sub');
 
-            showToast('✅ API结果已追加到自定义优选地址', 'success');
+            showToast('✅ نتیجه API به آدرس بهینه‌سازی سفارشی اضافه شد', 'success');
             closeAPIOptimizeModal();
         }
 
@@ -11488,7 +11581,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             console.log('[在线优选] 开始: 检测网络环境');
             const detectionBox = document.getElementById('ipDetectionBox');
             const btnStart = document.getElementById('btnStartOptimize');
-            detectionBox.innerHTML = '<div class="ip-detection-info">正在检测您的网络环境...</div>';
+            detectionBox.innerHTML = '<div class="ip-detection-info">در حال تشخیص محیط شبکه شما...</div>';
 
             try {
                 // 首先尝试本地路径
@@ -11615,7 +11708,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
                 if (ips.length === 0) {
                     console.error('[在线优选] 错误: 未能获取到IP列表');
-                    showToast('未能获取到IP列表', 'error');
+                    showToast('امکان دریافت لیست IP وجود ندارد', 'error');
                     return;
                 }
 
@@ -11635,11 +11728,11 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
                 displayResults();
 
                 console.log('[在线优选] 完成: 优选流程已完成');
-                showToast('优选完成！', 'success');
+                showToast('بهینه‌سازی تکمیل شد!', 'success');
 
             } catch (error) {
                 console.error('[在线优选] 优选过程出错:', error);
-                showToast('优选过程出错: ' + error.message, 'error');
+                showToast('فرآیند بهینه‌سازی دچار خطا شد: ' + error.message, 'error');
             } finally {
                 btnStart.disabled = false;
                 btnStart.textContent = '开始优选';
@@ -12199,7 +12292,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
             if (!currentSelectedCountry || !optimizeResults[currentSelectedCountry]) {
                 console.warn('[在线优选] 未选择国家或无结果数据');
-                showToast('请先选择一个国家', 'error');
+                showToast('لطفا ابتدا یک کشور را انتخاب کنید', 'error');
                 return;
             }
 
@@ -12215,7 +12308,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             if (mode === 'override') {
                 textarea.value = newContent;
                 console.log('[在线优选] 成功: 覆盖保存完成');
-                showToast('已覆盖到自定义优选地址 (前16个)', 'success');
+                showToast('به آدرس بهینه‌سازی سفارشی ریخته شد (16تای اول)', 'success');
             } else if (mode === 'append') {
                 const currentValue = textarea.value.trim();
 
@@ -12242,16 +12335,16 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
                     console.log(`[在线优选] 成功: 追加保存完成，新增=${addedCount} 个 IP，重复=${newLines.length - addedCount} 个`);
                     if (addedCount === 0) {
-                        showToast('所有IP均已存在，未添加新内容', 'info');
+                        showToast('همه IPها وجود دارند، محتوای جدیدی اضافه نشد', 'info');
                     } else if (addedCount < newLines.length) {
-                        showToast(`已追加 ${addedCount} 个新IP，过滤 ${newLines.length - addedCount} 个重复项`, 'success');
+                        showToast(`${addedCount} عدد IP جدید اضافه شد، ${newLines.length - addedCount} عدد تکراری فیلتر شد`, 'success');
                     } else {
-                        showToast(`已追加 ${addedCount} 个IP到自定义优选地址`, 'success');
+                        showToast(`${addedCount} عدد IP به آدرس بهینه‌سازی سفارشی اضافه شد`, 'success');
                     }
                 } else {
                     textarea.value = newContent;
                     console.log('[在线优选] 成功: 追加保存完成（原内容为空）');
-                    showToast('已追加到自定义优选地址 (前16个)', 'success');
+                    showToast('به آدرس بهینه‌سازی سفارشی اضافه شد (16تای اول)', 'success');
                 }
             }
 
@@ -12471,7 +12564,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
 
                 console.log(`[Twitter] 成功: IP=${twIp}, 位置=${twLoc}`);
             } catch (error) {
-                document.getElementById('twitter-ip').innerHTML = '<span class="error">翻墙失败</span>';
+                document.getElementById('twitter-ip').innerHTML = '<span class="error">فیلترشکن ناموفق بود</span>';
                 document.getElementById('twitter-country').textContent = '';
                 setStatus('status-twitter', 'error');
                 console.error('推特入口接口错误:', error);
@@ -12984,12 +13077,12 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             if (!ip) return;
 
             if (selectedProxyIPs.length >= 8) {
-                showToast('最多只能选择 8 个 ProxyIP', 'warning');
+                showToast('حداکثر فقط 8 عدد ProxyIP می‌توانید انتخاب کنید', 'warning');
                 return;
             }
 
             if (selectedProxyIPs.includes(ip)) {
-                showToast('该 IP 已在选择列表中', 'warning');
+                showToast('این IP قبلا انتخاب شده است', 'warning');
                 return;
             }
 
@@ -13767,7 +13860,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             const selectedProxy = select.value;
 
             if (!selectedProxy) {
-                showToast(`请选择一个有效的${type.toUpperCase()}代理`, 'error');
+                showToast(`لطفا یک ${type.toUpperCase()} معتبر انتخاب کنید`, 'error');
                 return;
             }
 
@@ -14029,7 +14122,7 @@ vless://7b102311-43fd-4e8f-977e-8090623c101d@edt-pages.github.io:443?security=tl
             closeHostsMismatchModal({ target: { id: 'hostsMismatchModal' } });
 
             // 显示确认提示
-            showToast('🎉 24小时内不会再提示', 'info');
+            showToast('🎉 24 ساعت دیگر یادآوری نمایش داده نخواهد شد', 'info');
         }
 
     </script>
